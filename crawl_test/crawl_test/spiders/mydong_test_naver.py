@@ -2,7 +2,7 @@ import scrapy
 from urllib.parse import quote
 
 
-class MyDongTestSpider(scrapy.Spider):
+class MyDongTestNaverSpider(scrapy.Spider):
     name = "mydong_test_naver"
     allowed_domains = ["m.map.naver.com", "m.place.naver.com"]
 
