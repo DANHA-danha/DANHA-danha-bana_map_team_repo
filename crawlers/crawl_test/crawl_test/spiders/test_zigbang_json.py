@@ -3,7 +3,7 @@ import scrapy
 
 
 class TestZigbangSpider(scrapy.Spider):
-    name = "test_zigbang"
+    name = "test_zigbang_json"
     allowed_domains = ["apis.zigbang.com"]
 
     custom_settings = {
