@@ -1,0 +1,4315 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_ec7989c341b37aac825116640fd752a9 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+<div style='position:fixed;bottom:30px;left:30px;z-index:1000;background:white;
+            padding:12px 16px;border-radius:8px;border:2px solid #aaa;
+            font-size:13px;line-height:1.9;box-shadow:2px 2px 6px rgba(0,0,0,.2)'>
+  <b>범례</b><br>
+  <span style='color:steelblue'>★</span> 바나프레소 성공<br>
+  <span style='color:crimson'>✕</span> 바나프레소 신규/실패<br>
+  <span style='color:crimson'>⌂</span> 추천 TOP 1~10<br>
+  <span style='color:darkorange'>⌂</span> 추천 TOP 11~30<br>
+  <span style='color:green'>⌂</span> 추천 TOP 31~50
+</div>
+    
+            <div class="folium-map" id="map_ec7989c341b37aac825116640fd752a9" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_ec7989c341b37aac825116640fd752a9 = L.map(
+                "map_ec7989c341b37aac825116640fd752a9",
+                {
+                    center: [37.545, 127.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_3b9167647635ecfedc1dc9c500d1629b = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_3b9167647635ecfedc1dc9c500d1629b.addTo(map_ec7989c341b37aac825116640fd752a9);
+        
+    
+            var feature_group_3bd36c3f44f6a316582b081159db7bd9 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_065640d9d240a24175052fa8d8f863e5 = L.marker(
+                [37.5011301173784, 127.039098610917],
+                {
+}
+            ).addTo(feature_group_3bd36c3f44f6a316582b081159db7bd9);
+        
+    
+            var icon_e35fb77fbddba4e024e66f954710fb86 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_237a10088a12d04d03a6c3e3177dca20 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_7e192ec5ebd3b9d3cead45e96e6fb0e7 = $(`<div id="html_7e192ec5ebd3b9d3cead45e96e6fb0e7" style="width: 100.0%; height: 100.0%;"><b>바나프레소 테헤란로점</b><br>개점일: 2019-05-23<br>입지점수: 0.522<br>성공</div>`)[0];
+                popup_237a10088a12d04d03a6c3e3177dca20.setContent(html_7e192ec5ebd3b9d3cead45e96e6fb0e7);
+            
+        
+
+        marker_065640d9d240a24175052fa8d8f863e5.bindPopup(popup_237a10088a12d04d03a6c3e3177dca20)
+        ;
+
+        
+    
+    
+                marker_065640d9d240a24175052fa8d8f863e5.setIcon(icon_e35fb77fbddba4e024e66f954710fb86);
+            
+    
+            var marker_22f15173ec3ae6d55434f4bb5351b7e1 = L.marker(
+                [37.5037327208746, 127.023195609704],
+                {
+}
+            ).addTo(feature_group_3bd36c3f44f6a316582b081159db7bd9);
+        
+    
+            var icon_f11adc3d95d434885e0fd0a01d705f2a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d7ba7ec78e0362cd65ee331e32c1a8b8 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_3616b8aadd16028feae232acf7a3ef4f = $(`<div id="html_3616b8aadd16028feae232acf7a3ef4f" style="width: 100.0%; height: 100.0%;"><b>바나프레소 신논현역점</b><br>개점일: 2019-08-06<br>입지점수: 0.432<br>성공</div>`)[0];
+                popup_d7ba7ec78e0362cd65ee331e32c1a8b8.setContent(html_3616b8aadd16028feae232acf7a3ef4f);
+            
+        
+
+        marker_22f15173ec3ae6d55434f4bb5351b7e1.bindPopup(popup_d7ba7ec78e0362cd65ee331e32c1a8b8)
+        ;
+
+        
+    
+    
+                marker_22f15173ec3ae6d55434f4bb5351b7e1.setIcon(icon_f11adc3d95d434885e0fd0a01d705f2a);
+            
+    
+            var marker_db7efd9bc401f40cfcc479eaebb15862 = L.marker(
+                [37.5065217786409, 127.050397908819],
+                {
+}
+            ).addTo(feature_group_3bd36c3f44f6a316582b081159db7bd9);
+        
+    
+            var icon_e51673c03aa24dfef5cdc695a5324baf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5bdb4f932f782c0c17deb4ca4b195ba6 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_955b0a0ff6f733e7c009e607a6a70202 = $(`<div id="html_955b0a0ff6f733e7c009e607a6a70202" style="width: 100.0%; height: 100.0%;"><b>바나프레소 선릉공원점</b><br>개점일: 2021-07-23<br>입지점수: 0.537<br>성공</div>`)[0];
+                popup_5bdb4f932f782c0c17deb4ca4b195ba6.setContent(html_955b0a0ff6f733e7c009e607a6a70202);
+            
+        
+
+        marker_db7efd9bc401f40cfcc479eaebb15862.bindPopup(popup_5bdb4f932f782c0c17deb4ca4b195ba6)
+        ;
+
+        
+    
+    
+                marker_db7efd9bc401f40cfcc479eaebb15862.setIcon(icon_e51673c03aa24dfef5cdc695a5324baf);
+            
+    
+            var marker_f1cc868829a9bb2cf3c6b2179c51a884 = L.marker(
+                [37.5603388092001, 126.996256659638],
+                {
+}
+            ).addTo(feature_group_3bd36c3f44f6a316582b081159db7bd9);
+        
+    
+            var icon_2f902b82ce9f947c76644bf0caa549be = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8920debf7e989c0ba29f1d7ad0118701 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_912c006b3ad1ad2111aee208eb86633a = $(`<div id="html_912c006b3ad1ad2111aee208eb86633a" style="width: 100.0%; height: 100.0%;"><b>바나프레소 충무로점</b><br>개점일: 2022-09-19<br>입지점수: 0.345<br>성공</div>`)[0];
+                popup_8920debf7e989c0ba29f1d7ad0118701.setContent(html_912c006b3ad1ad2111aee208eb86633a);
+            
+        
+
+        marker_f1cc868829a9bb2cf3c6b2179c51a884.bindPopup(popup_8920debf7e989c0ba29f1d7ad0118701)
+        ;
+
+        
+    
+    
+                marker_f1cc868829a9bb2cf3c6b2179c51a884.setIcon(icon_2f902b82ce9f947c76644bf0caa549be);
+            
+    
+            var marker_aee00f42454bc9df73c8c2948858a6f3 = L.marker(
+                [37.5550607718839, 126.920693732271],
+                {
+}
+            ).addTo(feature_group_3bd36c3f44f6a316582b081159db7bd9);
+        
+    
+            var icon_e7605b1b90797fd1335b61fc2a26df38 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6c953c408f32632e7803998ac430635c = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_82721c3e422ef96a5e681110e927b849 = $(`<div id="html_82721c3e422ef96a5e681110e927b849" style="width: 100.0%; height: 100.0%;"><b>바나프레소 홍대입구역사거리점</b><br>개점일: 2022-11-07<br>입지점수: 0.413<br>성공</div>`)[0];
+                popup_6c953c408f32632e7803998ac430635c.setContent(html_82721c3e422ef96a5e681110e927b849);
+            
+        
+
+        marker_aee00f42454bc9df73c8c2948858a6f3.bindPopup(popup_6c953c408f32632e7803998ac430635c)
+        ;
+
+        
+    
+    
+                marker_aee00f42454bc9df73c8c2948858a6f3.setIcon(icon_e7605b1b90797fd1335b61fc2a26df38);
+            
+    
+            var marker_f630a5e1fb6a8fb677f03ae4e405044c = L.marker(
+                [37.4830322462208, 127.036464509789],
+                {
+}
+            ).addTo(feature_group_3bd36c3f44f6a316582b081159db7bd9);
+        
+    
+            var icon_7dca4160e5f194bb84553c4baa91e4ee = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a932f4c3d87e71e595629af6890df159 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_1a7a708e415741af3be7f322caafb615 = $(`<div id="html_1a7a708e415741af3be7f322caafb615" style="width: 100.0%; height: 100.0%;"><b>바나프레소 양재이안점</b><br>개점일: 2023-01-31<br>입지점수: 0.391<br>성공</div>`)[0];
+                popup_a932f4c3d87e71e595629af6890df159.setContent(html_1a7a708e415741af3be7f322caafb615);
+            
+        
+
+        marker_f630a5e1fb6a8fb677f03ae4e405044c.bindPopup(popup_a932f4c3d87e71e595629af6890df159)
+        ;
+
+        
+    
+    
+                marker_f630a5e1fb6a8fb677f03ae4e405044c.setIcon(icon_7dca4160e5f194bb84553c4baa91e4ee);
+            
+    
+            var marker_179160c1eddef4dc3b5dbbf3ee4f0a4e = L.marker(
+                [37.5251913154781, 126.929112756574],
+                {
+}
+            ).addTo(feature_group_3bd36c3f44f6a316582b081159db7bd9);
+        
+    
+            var icon_cf383890afc05f975283c0468f8ba565 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4ef51b7b8d337a3d5e1eb6b5a779f24e = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_5396eb56211655037dd6879d1677edc2 = $(`<div id="html_5396eb56211655037dd6879d1677edc2" style="width: 100.0%; height: 100.0%;"><b>바나프레소 여의도파크원점</b><br>개점일: 2021-03-18<br>입지점수: 0.346<br>성공</div>`)[0];
+                popup_4ef51b7b8d337a3d5e1eb6b5a779f24e.setContent(html_5396eb56211655037dd6879d1677edc2);
+            
+        
+
+        marker_179160c1eddef4dc3b5dbbf3ee4f0a4e.bindPopup(popup_4ef51b7b8d337a3d5e1eb6b5a779f24e)
+        ;
+
+        
+    
+    
+                marker_179160c1eddef4dc3b5dbbf3ee4f0a4e.setIcon(icon_cf383890afc05f975283c0468f8ba565);
+            
+    
+            var marker_e205d1da00c1f8468d33bbf3f2a67d3a = L.marker(
+                [37.5257610278541, 126.887942282336],
+                {
+}
+            ).addTo(feature_group_3bd36c3f44f6a316582b081159db7bd9);
+        
+    
+            var icon_160f919d39d8b489ba6ccc82ba877b1e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ad386eb43a2d6cdc8be26841bb321aaa = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_b40ce5b11cc0e33580b517ff6e12ab18 = $(`<div id="html_b40ce5b11cc0e33580b517ff6e12ab18" style="width: 100.0%; height: 100.0%;"><b>바나프레소 양평역점</b><br>개점일: 2015-08-05<br>입지점수: 0.304<br>성공</div>`)[0];
+                popup_ad386eb43a2d6cdc8be26841bb321aaa.setContent(html_b40ce5b11cc0e33580b517ff6e12ab18);
+            
+        
+
+        marker_e205d1da00c1f8468d33bbf3f2a67d3a.bindPopup(popup_ad386eb43a2d6cdc8be26841bb321aaa)
+        ;
+
+        
+    
+    
+                marker_e205d1da00c1f8468d33bbf3f2a67d3a.setIcon(icon_160f919d39d8b489ba6ccc82ba877b1e);
+            
+    
+            var marker_226f724d96cb1940b1404e19856a2f8c = L.marker(
+                [37.5610796592227, 126.982076857446],
+                {
+}
+            ).addTo(feature_group_3bd36c3f44f6a316582b081159db7bd9);
+        
+    
+            var icon_b9d01655ee7979daa1acc14a7830c00c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_89458bfc1a3b3109d25d4f8acfe0112b = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_f7dac4bded10742f14016b6d90b1e178 = $(`<div id="html_f7dac4bded10742f14016b6d90b1e178" style="width: 100.0%; height: 100.0%;"><b>바나프레소 명동중앙우체국점</b><br>개점일: 2021-10-29<br>입지점수: 0.389<br>성공</div>`)[0];
+                popup_89458bfc1a3b3109d25d4f8acfe0112b.setContent(html_f7dac4bded10742f14016b6d90b1e178);
+            
+        
+
+        marker_226f724d96cb1940b1404e19856a2f8c.bindPopup(popup_89458bfc1a3b3109d25d4f8acfe0112b)
+        ;
+
+        
+    
+    
+                marker_226f724d96cb1940b1404e19856a2f8c.setIcon(icon_b9d01655ee7979daa1acc14a7830c00c);
+            
+    
+            var marker_41c221c6bef6e59ebf40029e8fc211e7 = L.marker(
+                [37.539260435206, 126.946151540413],
+                {
+}
+            ).addTo(feature_group_3bd36c3f44f6a316582b081159db7bd9);
+        
+    
+            var icon_f7069d63ee454c334ae03a748f87d74e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4c19b526446ad618c2faa64cd47c32c1 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_e8ccdfab5bacf823769aee1179762f8b = $(`<div id="html_e8ccdfab5bacf823769aee1179762f8b" style="width: 100.0%; height: 100.0%;"><b>바나프레소 마포역점</b><br>개점일: 2015-11-17<br>입지점수: 0.326<br>성공</div>`)[0];
+                popup_4c19b526446ad618c2faa64cd47c32c1.setContent(html_e8ccdfab5bacf823769aee1179762f8b);
+            
+        
+
+        marker_41c221c6bef6e59ebf40029e8fc211e7.bindPopup(popup_4c19b526446ad618c2faa64cd47c32c1)
+        ;
+
+        
+    
+    
+                marker_41c221c6bef6e59ebf40029e8fc211e7.setIcon(icon_f7069d63ee454c334ae03a748f87d74e);
+            
+    
+            feature_group_3bd36c3f44f6a316582b081159db7bd9.addTo(map_ec7989c341b37aac825116640fd752a9);
+        
+    
+            var feature_group_74ebc1b841c02abf3a84d585a23a761c = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_963ffa928b5583862ae9699ac16a5646 = L.marker(
+                [37.654290852548, 127.075304285056],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_2aa80d2568142e9694c153f54ce8b117 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_131bdc40ec6b5397c79021dfab90f222 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_1c192a43c336bb6f46d779b302d67c1a = $(`<div id="html_1c192a43c336bb6f46d779b302d67c1a" style="width: 100.0%; height: 100.0%;"><b>바나프레소 중계은행사거리점</b><br>개점일: 2023-03-24<br>입지점수: 0.349<br>신규/실패</div>`)[0];
+                popup_131bdc40ec6b5397c79021dfab90f222.setContent(html_1c192a43c336bb6f46d779b302d67c1a);
+            
+        
+
+        marker_963ffa928b5583862ae9699ac16a5646.bindPopup(popup_131bdc40ec6b5397c79021dfab90f222)
+        ;
+
+        
+    
+    
+                marker_963ffa928b5583862ae9699ac16a5646.setIcon(icon_2aa80d2568142e9694c153f54ce8b117);
+            
+    
+            var marker_679cc4872f305764cb0ae31c6bf1b609 = L.marker(
+                [37.4750100992712, 127.141592563317],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_ace5997745e8783283440b3c90d49644 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dbf64f52e60d08274db42a3c822c6b0f = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_01373b2e49ea4e00f421a67137f1a28f = $(`<div id="html_01373b2e49ea4e00f421a67137f1a28f" style="width: 100.0%; height: 100.0%;"><b>banapresso 위례중앙점</b><br>개점일: 2023-05-01<br>입지점수: 0.298<br>신규/실패</div>`)[0];
+                popup_dbf64f52e60d08274db42a3c822c6b0f.setContent(html_01373b2e49ea4e00f421a67137f1a28f);
+            
+        
+
+        marker_679cc4872f305764cb0ae31c6bf1b609.bindPopup(popup_dbf64f52e60d08274db42a3c822c6b0f)
+        ;
+
+        
+    
+    
+                marker_679cc4872f305764cb0ae31c6bf1b609.setIcon(icon_ace5997745e8783283440b3c90d49644);
+            
+    
+            var marker_94876f828fb70f15cae8a5c9d44250b1 = L.marker(
+                [37.5675893491524, 127.159990226335],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_0097ddd4b512180a4282d496bd485981 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6b92e0a5f5316c9ecb414627fa5bcf2b = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_a3a177d8b1ee58636f6f69b9c720174b = $(`<div id="html_a3a177d8b1ee58636f6f69b9c720174b" style="width: 100.0%; height: 100.0%;"><b>바나프레소 고덕비즈밸리점</b><br>개점일: 2025-03-25<br>입지점수: 0.257<br>신규/실패</div>`)[0];
+                popup_6b92e0a5f5316c9ecb414627fa5bcf2b.setContent(html_a3a177d8b1ee58636f6f69b9c720174b);
+            
+        
+
+        marker_94876f828fb70f15cae8a5c9d44250b1.bindPopup(popup_6b92e0a5f5316c9ecb414627fa5bcf2b)
+        ;
+
+        
+    
+    
+                marker_94876f828fb70f15cae8a5c9d44250b1.setIcon(icon_0097ddd4b512180a4282d496bd485981);
+            
+    
+            var marker_cccd618cfec9ddbbdd52e2a61da105ac = L.marker(
+                [37.5632510909133, 126.972031493823],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_ae56df22b65c1359b825891e80f010a6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1b607a73a556465e2ce67a5abb31b766 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_2eedb234dea0de1b8c2a52643bd7a952 = $(`<div id="html_2eedb234dea0de1b8c2a52643bd7a952" style="width: 100.0%; height: 100.0%;"><b>바나프레소 서울시청역점</b><br>개점일: 2025-05-14<br>입지점수: 0.367<br>신규/실패</div>`)[0];
+                popup_1b607a73a556465e2ce67a5abb31b766.setContent(html_2eedb234dea0de1b8c2a52643bd7a952);
+            
+        
+
+        marker_cccd618cfec9ddbbdd52e2a61da105ac.bindPopup(popup_1b607a73a556465e2ce67a5abb31b766)
+        ;
+
+        
+    
+    
+                marker_cccd618cfec9ddbbdd52e2a61da105ac.setIcon(icon_ae56df22b65c1359b825891e80f010a6);
+            
+    
+            var marker_8c466c7e322a77d9ba0e52665f429bbd = L.marker(
+                [37.4846614982049, 127.120933640924],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_a92b9f41b9b18504cf9209bc29c3b97c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e23d7cda5b78569cf09a2413e341140d = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_21a7f39500a01d2bc24c5e0d0105d86a = $(`<div id="html_21a7f39500a01d2bc24c5e0d0105d86a" style="width: 100.0%; height: 100.0%;"><b>바나프레소 문정테라타워점</b><br>개점일: 2023-05-15<br>입지점수: 0.317<br>신규/실패</div>`)[0];
+                popup_e23d7cda5b78569cf09a2413e341140d.setContent(html_21a7f39500a01d2bc24c5e0d0105d86a);
+            
+        
+
+        marker_8c466c7e322a77d9ba0e52665f429bbd.bindPopup(popup_e23d7cda5b78569cf09a2413e341140d)
+        ;
+
+        
+    
+    
+                marker_8c466c7e322a77d9ba0e52665f429bbd.setIcon(icon_a92b9f41b9b18504cf9209bc29c3b97c);
+            
+    
+            var marker_1a0645e64b6a7c94db5a5d95114ebc0b = L.marker(
+                [37.4732207718169, 126.884298623646],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_394e8e40cf9145d6aa945a49540def94 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_47338416ae6e35ba6fca15f32714dafb = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_e5f1ebcca92d95ec86b04256dc845f58 = $(`<div id="html_e5f1ebcca92d95ec86b04256dc845f58" style="width: 100.0%; height: 100.0%;"><b>바나프레소 가산파트너스타워점</b><br>개점일: 2023-06-07<br>입지점수: 0.294<br>신규/실패</div>`)[0];
+                popup_47338416ae6e35ba6fca15f32714dafb.setContent(html_e5f1ebcca92d95ec86b04256dc845f58);
+            
+        
+
+        marker_1a0645e64b6a7c94db5a5d95114ebc0b.bindPopup(popup_47338416ae6e35ba6fca15f32714dafb)
+        ;
+
+        
+    
+    
+                marker_1a0645e64b6a7c94db5a5d95114ebc0b.setIcon(icon_394e8e40cf9145d6aa945a49540def94);
+            
+    
+            var marker_63769f7280964d6b116c906ba39a45bb = L.marker(
+                [37.5615608750218, 127.061221939829],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_1009b4845b9d9c459c85fcbcd82a584e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0bea8ef383a1b3d32c56212fbd6b084c = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_54d138752775fa08a27e534006ad97bb = $(`<div id="html_54d138752775fa08a27e534006ad97bb" style="width: 100.0%; height: 100.0%;"><b>바나프레소 장한평역점</b><br>개점일: 2023-11-07<br>입지점수: 0.296<br>신규/실패</div>`)[0];
+                popup_0bea8ef383a1b3d32c56212fbd6b084c.setContent(html_54d138752775fa08a27e534006ad97bb);
+            
+        
+
+        marker_63769f7280964d6b116c906ba39a45bb.bindPopup(popup_0bea8ef383a1b3d32c56212fbd6b084c)
+        ;
+
+        
+    
+    
+                marker_63769f7280964d6b116c906ba39a45bb.setIcon(icon_1009b4845b9d9c459c85fcbcd82a584e);
+            
+    
+            var marker_ae4d2019ae1dda56c84ee05f9383d62c = L.marker(
+                [37.4875261941992, 126.994201615542],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_a74ce86cf92e1eb59422dcf9479a7895 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_928fd8ec060868af03d24b191ba46c10 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_95e988cfb4a311494adefb78f9ea4647 = $(`<div id="html_95e988cfb4a311494adefb78f9ea4647" style="width: 100.0%; height: 100.0%;"><b>바나프레소 내방역점</b><br>개점일: 2024-01-09<br>입지점수: 0.339<br>신규/실패</div>`)[0];
+                popup_928fd8ec060868af03d24b191ba46c10.setContent(html_95e988cfb4a311494adefb78f9ea4647);
+            
+        
+
+        marker_ae4d2019ae1dda56c84ee05f9383d62c.bindPopup(popup_928fd8ec060868af03d24b191ba46c10)
+        ;
+
+        
+    
+    
+                marker_ae4d2019ae1dda56c84ee05f9383d62c.setIcon(icon_a74ce86cf92e1eb59422dcf9479a7895);
+            
+    
+            var marker_1dbd52b4a5c7a13d3094ee864c5d3f00 = L.marker(
+                [37.521746562403, 127.037636286238],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_7269788f5931746897c6ed7711c929c1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_08c667c07f2709e29b8131a2ef6614d8 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_fc7b3a22ee60f5e1991865dfa90c9977 = $(`<div id="html_fc7b3a22ee60f5e1991865dfa90c9977" style="width: 100.0%; height: 100.0%;"><b>바나프레소 도산논현점</b><br>개점일: 2024-01-19<br>입지점수: 0.289<br>신규/실패</div>`)[0];
+                popup_08c667c07f2709e29b8131a2ef6614d8.setContent(html_fc7b3a22ee60f5e1991865dfa90c9977);
+            
+        
+
+        marker_1dbd52b4a5c7a13d3094ee864c5d3f00.bindPopup(popup_08c667c07f2709e29b8131a2ef6614d8)
+        ;
+
+        
+    
+    
+                marker_1dbd52b4a5c7a13d3094ee864c5d3f00.setIcon(icon_7269788f5931746897c6ed7711c929c1);
+            
+    
+            var marker_7557aaeb40e1ab934f38612f9154f79e = L.marker(
+                [37.6007699096006, 127.013617460956],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_f45b82e1ac5a691d466c2e024c9a7269 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b1414a46468da8b54356c44df92bb735 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_0a29d15791ab07c813962a57ba64d77c = $(`<div id="html_0a29d15791ab07c813962a57ba64d77c" style="width: 100.0%; height: 100.0%;"><b>바나프레소 돈암아리랑점</b><br>개점일: 2024-01-26<br>입지점수: 0.312<br>신규/실패</div>`)[0];
+                popup_b1414a46468da8b54356c44df92bb735.setContent(html_0a29d15791ab07c813962a57ba64d77c);
+            
+        
+
+        marker_7557aaeb40e1ab934f38612f9154f79e.bindPopup(popup_b1414a46468da8b54356c44df92bb735)
+        ;
+
+        
+    
+    
+                marker_7557aaeb40e1ab934f38612f9154f79e.setIcon(icon_f45b82e1ac5a691d466c2e024c9a7269);
+            
+    
+            var marker_5d95cd8a666e79f1a9cd759bda003cd8 = L.marker(
+                [37.5463937599992, 127.065889477465],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_523380b94a1fd392560b2045f97f630b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7310f2e872929af9617e5ef03eadbc1a = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_2f50ff01aa901f9b8341bb18c3cee5ba = $(`<div id="html_2f50ff01aa901f9b8341bb18c3cee5ba" style="width: 100.0%; height: 100.0%;"><b>바나프레소 성수낙낙점</b><br>개점일: 2024-02-19<br>입지점수: 0.332<br>신규/실패</div>`)[0];
+                popup_7310f2e872929af9617e5ef03eadbc1a.setContent(html_2f50ff01aa901f9b8341bb18c3cee5ba);
+            
+        
+
+        marker_5d95cd8a666e79f1a9cd759bda003cd8.bindPopup(popup_7310f2e872929af9617e5ef03eadbc1a)
+        ;
+
+        
+    
+    
+                marker_5d95cd8a666e79f1a9cd759bda003cd8.setIcon(icon_523380b94a1fd392560b2045f97f630b);
+            
+    
+            var marker_0871041844308bbb731ff1fb714151ea = L.marker(
+                [37.5441736979491, 127.069504903952],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_9306d09eaaa56f319726d076ac6f876f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_507e07fc05b4887fba6c3a8a5867b89e = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_38497d7faf3c790bc6c5a185f5600169 = $(`<div id="html_38497d7faf3c790bc6c5a185f5600169" style="width: 100.0%; height: 100.0%;"><b>바나프레소 건대점</b><br>개점일: 2024-02-29<br>입지점수: 0.199<br>신규/실패</div>`)[0];
+                popup_507e07fc05b4887fba6c3a8a5867b89e.setContent(html_38497d7faf3c790bc6c5a185f5600169);
+            
+        
+
+        marker_0871041844308bbb731ff1fb714151ea.bindPopup(popup_507e07fc05b4887fba6c3a8a5867b89e)
+        ;
+
+        
+    
+    
+                marker_0871041844308bbb731ff1fb714151ea.setIcon(icon_9306d09eaaa56f319726d076ac6f876f);
+            
+    
+            var marker_4ba5046d38584148013bbf0f3e151143 = L.marker(
+                [37.603785604914, 127.023437392228],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_1a843b635a54f51a5df10206e94d2abe = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2de6e1f8315e116acf2c70e724a50b0f = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_f608e587255a4dfa4275f71c10a9442e = $(`<div id="html_f608e587255a4dfa4275f71c10a9442e" style="width: 100.0%; height: 100.0%;"><b>바나프레소 길음역점</b><br>개점일: 2024-05-02<br>입지점수: 0.314<br>신규/실패</div>`)[0];
+                popup_2de6e1f8315e116acf2c70e724a50b0f.setContent(html_f608e587255a4dfa4275f71c10a9442e);
+            
+        
+
+        marker_4ba5046d38584148013bbf0f3e151143.bindPopup(popup_2de6e1f8315e116acf2c70e724a50b0f)
+        ;
+
+        
+    
+    
+                marker_4ba5046d38584148013bbf0f3e151143.setIcon(icon_1a843b635a54f51a5df10206e94d2abe);
+            
+    
+            var marker_ce42219d6fced06c662fc263c79f438e = L.marker(
+                [37.4800207661549, 126.878015828177],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_ad12e8537f7841149373ccb06ec89e65 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a9e99ab356b0a77fe1f3e77fc144bd3f = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_77f6e3100b7afbf94c4c3ce4f25d3fa6 = $(`<div id="html_77f6e3100b7afbf94c4c3ce4f25d3fa6" style="width: 100.0%; height: 100.0%;"><b>바나프레소 가산어반워크점</b><br>개점일: 2024-05-29<br>입지점수: 0.264<br>신규/실패</div>`)[0];
+                popup_a9e99ab356b0a77fe1f3e77fc144bd3f.setContent(html_77f6e3100b7afbf94c4c3ce4f25d3fa6);
+            
+        
+
+        marker_ce42219d6fced06c662fc263c79f438e.bindPopup(popup_a9e99ab356b0a77fe1f3e77fc144bd3f)
+        ;
+
+        
+    
+    
+                marker_ce42219d6fced06c662fc263c79f438e.setIcon(icon_ad12e8537f7841149373ccb06ec89e65);
+            
+    
+            var marker_5537eb3698645470b415f47ae7bd2b0a = L.marker(
+                [37.4887974265414, 127.009870797114],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_7d6c83482cee50115fc8976ca5c11ae6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5e96eb1a70ee2ee4b90a54e1690c4bc1 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_3ccc37cc6ae6eed99e088a364bc65454 = $(`<div id="html_3ccc37cc6ae6eed99e088a364bc65454" style="width: 100.0%; height: 100.0%;"><b>바나프레소 서초남부점</b><br>개점일: 2024-07-01<br>입지점수: 0.331<br>신규/실패</div>`)[0];
+                popup_5e96eb1a70ee2ee4b90a54e1690c4bc1.setContent(html_3ccc37cc6ae6eed99e088a364bc65454);
+            
+        
+
+        marker_5537eb3698645470b415f47ae7bd2b0a.bindPopup(popup_5e96eb1a70ee2ee4b90a54e1690c4bc1)
+        ;
+
+        
+    
+    
+                marker_5537eb3698645470b415f47ae7bd2b0a.setIcon(icon_7d6c83482cee50115fc8976ca5c11ae6);
+            
+    
+            var marker_3520b8932e98b5f46fd933279c0cd671 = L.marker(
+                [37.5627710734302, 126.992859420269],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_73b3730a944f7d2925aafbda4ec55d59 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7952a6e3a8227c38642f3b95bbef51b9 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_949db716509b4071e2c1c115c41dbf72 = $(`<div id="html_949db716509b4071e2c1c115c41dbf72" style="width: 100.0%; height: 100.0%;"><b>바나프레소 충무로역점</b><br>개점일: 2024-07-01<br>입지점수: 0.403<br>신규/실패</div>`)[0];
+                popup_7952a6e3a8227c38642f3b95bbef51b9.setContent(html_949db716509b4071e2c1c115c41dbf72);
+            
+        
+
+        marker_3520b8932e98b5f46fd933279c0cd671.bindPopup(popup_7952a6e3a8227c38642f3b95bbef51b9)
+        ;
+
+        
+    
+    
+                marker_3520b8932e98b5f46fd933279c0cd671.setIcon(icon_73b3730a944f7d2925aafbda4ec55d59);
+            
+    
+            var marker_6ad7b3ab1f535ea5dcd89af7114cdabc = L.marker(
+                [37.5251639033122, 127.049761547072],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_f9cf3998d2e6397553e28df911a23ce4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d850ad073e07a3ce49534327508e8245 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_dca30a0dabc53f3ec4a43b6a5ad58d3c = $(`<div id="html_dca30a0dabc53f3ec4a43b6a5ad58d3c" style="width: 100.0%; height: 100.0%;"><b>바나프레소 청담디아트점</b><br>개점일: 2024-07-15<br>입지점수: 0.271<br>신규/실패</div>`)[0];
+                popup_d850ad073e07a3ce49534327508e8245.setContent(html_dca30a0dabc53f3ec4a43b6a5ad58d3c);
+            
+        
+
+        marker_6ad7b3ab1f535ea5dcd89af7114cdabc.bindPopup(popup_d850ad073e07a3ce49534327508e8245)
+        ;
+
+        
+    
+    
+                marker_6ad7b3ab1f535ea5dcd89af7114cdabc.setIcon(icon_f9cf3998d2e6397553e28df911a23ce4);
+            
+    
+            var marker_0c740b39a0368b64685b051f4125368f = L.marker(
+                [37.5074267999126, 127.059755460388],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_bd9787dcd084adeacdae94e0e0261189 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_22e807a8648f386f154760092e0ea7d7 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_e8edf6707495de52848b52669cc0993e = $(`<div id="html_e8edf6707495de52848b52669cc0993e" style="width: 100.0%; height: 100.0%;"><b>바나프레소 대치삼성점</b><br>개점일: 2024-08-06<br>입지점수: 0.337<br>신규/실패</div>`)[0];
+                popup_22e807a8648f386f154760092e0ea7d7.setContent(html_e8edf6707495de52848b52669cc0993e);
+            
+        
+
+        marker_0c740b39a0368b64685b051f4125368f.bindPopup(popup_22e807a8648f386f154760092e0ea7d7)
+        ;
+
+        
+    
+    
+                marker_0c740b39a0368b64685b051f4125368f.setIcon(icon_bd9787dcd084adeacdae94e0e0261189);
+            
+    
+            var marker_643757fd9146775b0da54310e79ab4f9 = L.marker(
+                [37.5280169945095, 126.870615708032],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_de124dd0849c57d3c3adbd6f9b535752 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c72c4fedc878b7fdf5d7232bc3c7b149 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_d9043eb634284aaee0cae9c3af60c1ac = $(`<div id="html_d9043eb634284aaee0cae9c3af60c1ac" style="width: 100.0%; height: 100.0%;"><b>바나프레소 목동점</b><br>개점일: 2024-08-12<br>입지점수: 0.330<br>신규/실패</div>`)[0];
+                popup_c72c4fedc878b7fdf5d7232bc3c7b149.setContent(html_d9043eb634284aaee0cae9c3af60c1ac);
+            
+        
+
+        marker_643757fd9146775b0da54310e79ab4f9.bindPopup(popup_c72c4fedc878b7fdf5d7232bc3c7b149)
+        ;
+
+        
+    
+    
+                marker_643757fd9146775b0da54310e79ab4f9.setIcon(icon_de124dd0849c57d3c3adbd6f9b535752);
+            
+    
+            var marker_575f26a436e09b7f250ef0b2414a1551 = L.marker(
+                [37.4986324139076, 127.06139805987],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_fd0a40caf47af4c571b1e0699f5dd3df = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c42002599c205836eb96caf005ef97c5 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_41daac1efd0a70dc2c8112e38dff1217 = $(`<div id="html_41daac1efd0a70dc2c8112e38dff1217" style="width: 100.0%; height: 100.0%;"><b>바나프레소 대치은마사거리점</b><br>개점일: 2024-08-28<br>입지점수: 0.294<br>신규/실패</div>`)[0];
+                popup_c42002599c205836eb96caf005ef97c5.setContent(html_41daac1efd0a70dc2c8112e38dff1217);
+            
+        
+
+        marker_575f26a436e09b7f250ef0b2414a1551.bindPopup(popup_c42002599c205836eb96caf005ef97c5)
+        ;
+
+        
+    
+    
+                marker_575f26a436e09b7f250ef0b2414a1551.setIcon(icon_fd0a40caf47af4c571b1e0699f5dd3df);
+            
+    
+            var marker_4abadf717b89ba57abe9a6984d54526b = L.marker(
+                [37.4980609129976, 127.026504807476],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_c941b597c36ce84c5c4a42967b0519ba = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e5d5e6f0a936b61a0285f24bcf9ea9bf = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_a7dc457fe6ba359e9fc0a6de4251ac83 = $(`<div id="html_a7dc457fe6ba359e9fc0a6de4251ac83" style="width: 100.0%; height: 100.0%;"><b>바나프레소 강남역아라타워점</b><br>개점일: 2024-10-02<br>입지점수: 0.817<br>신규/실패</div>`)[0];
+                popup_e5d5e6f0a936b61a0285f24bcf9ea9bf.setContent(html_a7dc457fe6ba359e9fc0a6de4251ac83);
+            
+        
+
+        marker_4abadf717b89ba57abe9a6984d54526b.bindPopup(popup_e5d5e6f0a936b61a0285f24bcf9ea9bf)
+        ;
+
+        
+    
+    
+                marker_4abadf717b89ba57abe9a6984d54526b.setIcon(icon_c941b597c36ce84c5c4a42967b0519ba);
+            
+    
+            var marker_91b1d47e33142e601082dc77a41168af = L.marker(
+                [37.5668988918932, 127.053284511547],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_273f03c1f0c782b634607f77402949eb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b2bb104260f3c911813fca1a0bbef077 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_2d77f9d427f4710649abd76a126b3855 = $(`<div id="html_2d77f9d427f4710649abd76a126b3855" style="width: 100.0%; height: 100.0%;"><b>바나프레소 답십리역점</b><br>개점일: 2023-04-13<br>입지점수: 0.384<br>신규/실패</div>`)[0];
+                popup_b2bb104260f3c911813fca1a0bbef077.setContent(html_2d77f9d427f4710649abd76a126b3855);
+            
+        
+
+        marker_91b1d47e33142e601082dc77a41168af.bindPopup(popup_b2bb104260f3c911813fca1a0bbef077)
+        ;
+
+        
+    
+    
+                marker_91b1d47e33142e601082dc77a41168af.setIcon(icon_273f03c1f0c782b634607f77402949eb);
+            
+    
+            var marker_620a7a07c672af674f721d068b02bc79 = L.marker(
+                [37.5833322525816, 126.998325202246],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_6138a524a8cb75b0630f0d7ebf4460c1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_887274a9d9330e480ba51f156d98b77a = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_2fb363a0cb8d024a1611e281d12a7516 = $(`<div id="html_2fb363a0cb8d024a1611e281d12a7516" style="width: 100.0%; height: 100.0%;"><b>바나프레소 서울성균관대점</b><br>개점일: 2025-01-06<br>입지점수: 0.436<br>신규/실패</div>`)[0];
+                popup_887274a9d9330e480ba51f156d98b77a.setContent(html_2fb363a0cb8d024a1611e281d12a7516);
+            
+        
+
+        marker_620a7a07c672af674f721d068b02bc79.bindPopup(popup_887274a9d9330e480ba51f156d98b77a)
+        ;
+
+        
+    
+    
+                marker_620a7a07c672af674f721d068b02bc79.setIcon(icon_6138a524a8cb75b0630f0d7ebf4460c1);
+            
+    
+            var marker_d557ef615f6409ab7582ddf73cfece66 = L.marker(
+                [37.5210989114185, 126.929781329983],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_dde5d646053f53408a07ebad92c0c051 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_650a1bfc6a6512080149d82db5b0e5f3 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_1e498d066a2622edf4eef4d0a60798d9 = $(`<div id="html_1e498d066a2622edf4eef4d0a60798d9" style="width: 100.0%; height: 100.0%;"><b>바나프레소 동여의도점</b><br>개점일: 2025-02-10<br>입지점수: 0.388<br>신규/실패</div>`)[0];
+                popup_650a1bfc6a6512080149d82db5b0e5f3.setContent(html_1e498d066a2622edf4eef4d0a60798d9);
+            
+        
+
+        marker_d557ef615f6409ab7582ddf73cfece66.bindPopup(popup_650a1bfc6a6512080149d82db5b0e5f3)
+        ;
+
+        
+    
+    
+                marker_d557ef615f6409ab7582ddf73cfece66.setIcon(icon_dde5d646053f53408a07ebad92c0c051);
+            
+    
+            var marker_03b03cbb3fb73dedd0b1636bac85660e = L.marker(
+                [37.5752303080303, 127.039521192634],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_34b2f458ae6a3f2ef132ab5518c5407c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_86085b9158139588695b7ef2232ca398 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_ec66c45373ddad94b3dd78ee737d33ca = $(`<div id="html_ec66c45373ddad94b3dd78ee737d33ca" style="width: 100.0%; height: 100.0%;"><b>바나프레소 동대문구청점</b><br>개점일: 2024-02-21<br>입지점수: 0.260<br>신규/실패</div>`)[0];
+                popup_86085b9158139588695b7ef2232ca398.setContent(html_ec66c45373ddad94b3dd78ee737d33ca);
+            
+        
+
+        marker_03b03cbb3fb73dedd0b1636bac85660e.bindPopup(popup_86085b9158139588695b7ef2232ca398)
+        ;
+
+        
+    
+    
+                marker_03b03cbb3fb73dedd0b1636bac85660e.setIcon(icon_34b2f458ae6a3f2ef132ab5518c5407c);
+            
+    
+            var marker_9dfd2b010259f2b8605ea1b465dda335 = L.marker(
+                [37.4883751535989, 127.102475755025],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_f52b3ccc2025bb36b9c7e38fa120ac39 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9eeb9d3a0579d7230d24574cb105773b = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_fc8d3b318d564467ea1710e82494d385 = $(`<div id="html_fc8d3b318d564467ea1710e82494d385" style="width: 100.0%; height: 100.0%;"><b>바나프레소 수서역점</b><br>개점일: 2025-06-02<br>입지점수: 0.275<br>신규/실패</div>`)[0];
+                popup_9eeb9d3a0579d7230d24574cb105773b.setContent(html_fc8d3b318d564467ea1710e82494d385);
+            
+        
+
+        marker_9dfd2b010259f2b8605ea1b465dda335.bindPopup(popup_9eeb9d3a0579d7230d24574cb105773b)
+        ;
+
+        
+    
+    
+                marker_9dfd2b010259f2b8605ea1b465dda335.setIcon(icon_f52b3ccc2025bb36b9c7e38fa120ac39);
+            
+    
+            var marker_720e24978d5a96f3be24b3f20cd02f25 = L.marker(
+                [37.5666164557397, 126.838422664924],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_4d2cdd372effc15afb7bdf6a877dd459 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f1acb244124705d7237cba3fdeec36df = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_ab16a222e64443c78ed169bcc0d87ec1 = $(`<div id="html_ab16a222e64443c78ed169bcc0d87ec1" style="width: 100.0%; height: 100.0%;"><b>바나프레소 양천향교역점</b><br>개점일: 2025-05-23<br>입지점수: 0.187<br>신규/실패</div>`)[0];
+                popup_f1acb244124705d7237cba3fdeec36df.setContent(html_ab16a222e64443c78ed169bcc0d87ec1);
+            
+        
+
+        marker_720e24978d5a96f3be24b3f20cd02f25.bindPopup(popup_f1acb244124705d7237cba3fdeec36df)
+        ;
+
+        
+    
+    
+                marker_720e24978d5a96f3be24b3f20cd02f25.setIcon(icon_4d2cdd372effc15afb7bdf6a877dd459);
+            
+    
+            var marker_f0f16c900cad8d4703bf34f09dc7f717 = L.marker(
+                [37.5253215967063, 127.028865132152],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_718d1faba96ba1c2cebff78c14688db9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7b6c93319f3ac5c543dc492809301239 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_6d0dad663ef8f67f56c7b1b99496a0fa = $(`<div id="html_6d0dad663ef8f67f56c7b1b99496a0fa" style="width: 100.0%; height: 100.0%;"><b>바나프레소 압구정CGV점</b><br>개점일: 2025-07-08<br>입지점수: 0.385<br>신규/실패</div>`)[0];
+                popup_7b6c93319f3ac5c543dc492809301239.setContent(html_6d0dad663ef8f67f56c7b1b99496a0fa);
+            
+        
+
+        marker_f0f16c900cad8d4703bf34f09dc7f717.bindPopup(popup_7b6c93319f3ac5c543dc492809301239)
+        ;
+
+        
+    
+    
+                marker_f0f16c900cad8d4703bf34f09dc7f717.setIcon(icon_718d1faba96ba1c2cebff78c14688db9);
+            
+    
+            var marker_bb81a30fe856131ef106281458909b19 = L.marker(
+                [37.5617210789329, 127.034237697854],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_698e53f6ba1bde01911160045b693ed0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_af0d676f8f5729401058f2640017ca67 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_89184324f66bdbb934d49f47855b4ea1 = $(`<div id="html_89184324f66bdbb934d49f47855b4ea1" style="width: 100.0%; height: 100.0%;"><b>바나프레소 왕십리점</b><br>개점일: 2025-07-11<br>입지점수: 0.289<br>신규/실패</div>`)[0];
+                popup_af0d676f8f5729401058f2640017ca67.setContent(html_89184324f66bdbb934d49f47855b4ea1);
+            
+        
+
+        marker_bb81a30fe856131ef106281458909b19.bindPopup(popup_af0d676f8f5729401058f2640017ca67)
+        ;
+
+        
+    
+    
+                marker_bb81a30fe856131ef106281458909b19.setIcon(icon_698e53f6ba1bde01911160045b693ed0);
+            
+    
+            var marker_f70c44e6b42df86a7b779664c12f450c = L.marker(
+                [37.46880404424, 126.887495831099],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_3e99a31dfd71a994457121efdfadc15a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_de27e20f0978c5ee78fc25c286467c01 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_dcff070b230232917507d848f5d1d5cb = $(`<div id="html_dcff070b230232917507d848f5d1d5cb" style="width: 100.0%; height: 100.0%;"><b>바나프레소 가산하이엔드 10차</b><br>개점일: 2025-08-01<br>입지점수: 0.273<br>신규/실패</div>`)[0];
+                popup_de27e20f0978c5ee78fc25c286467c01.setContent(html_dcff070b230232917507d848f5d1d5cb);
+            
+        
+
+        marker_f70c44e6b42df86a7b779664c12f450c.bindPopup(popup_de27e20f0978c5ee78fc25c286467c01)
+        ;
+
+        
+    
+    
+                marker_f70c44e6b42df86a7b779664c12f450c.setIcon(icon_3e99a31dfd71a994457121efdfadc15a);
+            
+    
+            var marker_b9f0a92fde90e9d569af48b9e43696d9 = L.marker(
+                [37.4785697268456, 126.876833912174],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_f7a443c8bfc39041803798c2cd3fd49e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_65671b07294e69136f11e77a80268fb6 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_69a12b20253c645a29ab071241a36848 = $(`<div id="html_69a12b20253c645a29ab071241a36848" style="width: 100.0%; height: 100.0%;"><b>바나프레소 가산안양천점</b><br>개점일: 2024-04-15<br>입지점수: 0.203<br>신규/실패</div>`)[0];
+                popup_65671b07294e69136f11e77a80268fb6.setContent(html_69a12b20253c645a29ab071241a36848);
+            
+        
+
+        marker_b9f0a92fde90e9d569af48b9e43696d9.bindPopup(popup_65671b07294e69136f11e77a80268fb6)
+        ;
+
+        
+    
+    
+                marker_b9f0a92fde90e9d569af48b9e43696d9.setIcon(icon_f7a443c8bfc39041803798c2cd3fd49e);
+            
+    
+            var marker_da2af6d212a5ba0b00d00d26c45d7bc5 = L.marker(
+                [37.5588780112567, 126.945856403546],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_861146badb0bdd515229fd9b0e387c5e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e551e027b475bf160c59ce553b7260a1 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_a0e53b38adbbab1dede0250fd30bc6ef = $(`<div id="html_a0e53b38adbbab1dede0250fd30bc6ef" style="width: 100.0%; height: 100.0%;"><b>바나프레소 이화여대점</b><br>개점일: 2025-09-08<br>입지점수: 0.299<br>신규/실패</div>`)[0];
+                popup_e551e027b475bf160c59ce553b7260a1.setContent(html_a0e53b38adbbab1dede0250fd30bc6ef);
+            
+        
+
+        marker_da2af6d212a5ba0b00d00d26c45d7bc5.bindPopup(popup_e551e027b475bf160c59ce553b7260a1)
+        ;
+
+        
+    
+    
+                marker_da2af6d212a5ba0b00d00d26c45d7bc5.setIcon(icon_861146badb0bdd515229fd9b0e387c5e);
+            
+    
+            var marker_4305aa70afb7b650c842c58641d0820b = L.marker(
+                [37.581324224744, 126.888548408154],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_66149fd48524c3b115677b279a7e18cc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1ef60949af8d8a53dc32ad9628fbe9d2 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_68dc35e852614602b3020253f259cf7c = $(`<div id="html_68dc35e852614602b3020253f259cf7c" style="width: 100.0%; height: 100.0%;"><b>바나프레소 상암사보이시티점</b><br>개점일: 2025-09-10<br>입지점수: 0.233<br>신규/실패</div>`)[0];
+                popup_1ef60949af8d8a53dc32ad9628fbe9d2.setContent(html_68dc35e852614602b3020253f259cf7c);
+            
+        
+
+        marker_4305aa70afb7b650c842c58641d0820b.bindPopup(popup_1ef60949af8d8a53dc32ad9628fbe9d2)
+        ;
+
+        
+    
+    
+                marker_4305aa70afb7b650c842c58641d0820b.setIcon(icon_66149fd48524c3b115677b279a7e18cc);
+            
+    
+            var marker_51d409344a04275b6c30b5e7856e60a4 = L.marker(
+                [37.555651258038, 127.081594698592],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_2e88b6cf4078e2732f2255bc8e39406e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6a5e3a25a660623b8b1e02c419f8424a = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_854fc6e88c1fdd58d8ef2f2a70843888 = $(`<div id="html_854fc6e88c1fdd58d8ef2f2a70843888" style="width: 100.0%; height: 100.0%;"><b>바나프레소 군자능동점</b><br>개점일: 2025-09-11<br>입지점수: 0.400<br>신규/실패</div>`)[0];
+                popup_6a5e3a25a660623b8b1e02c419f8424a.setContent(html_854fc6e88c1fdd58d8ef2f2a70843888);
+            
+        
+
+        marker_51d409344a04275b6c30b5e7856e60a4.bindPopup(popup_6a5e3a25a660623b8b1e02c419f8424a)
+        ;
+
+        
+    
+    
+                marker_51d409344a04275b6c30b5e7856e60a4.setIcon(icon_2e88b6cf4078e2732f2255bc8e39406e);
+            
+    
+            var marker_781301ded8c3adda09800777487e1bfd = L.marker(
+                [37.4807059211487, 126.953497637127],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_21e059396f23a164cadd7a5ab1fa1421 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_35021d0b3f74aff0ad3abca31384eadc = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_ec4dc64d07e26c725fa06e658726e3f1 = $(`<div id="html_ec4dc64d07e26c725fa06e658726e3f1" style="width: 100.0%; height: 100.0%;"><b>바나프레소 서울대입구역점</b><br>개점일: 2023-09-11<br>입지점수: 0.489<br>신규/실패</div>`)[0];
+                popup_35021d0b3f74aff0ad3abca31384eadc.setContent(html_ec4dc64d07e26c725fa06e658726e3f1);
+            
+        
+
+        marker_781301ded8c3adda09800777487e1bfd.bindPopup(popup_35021d0b3f74aff0ad3abca31384eadc)
+        ;
+
+        
+    
+    
+                marker_781301ded8c3adda09800777487e1bfd.setIcon(icon_21e059396f23a164cadd7a5ab1fa1421);
+            
+    
+            var marker_960caa733b39b8c74d6fc48f8700445d = L.marker(
+                [37.5834937035041, 127.029607290684],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_e1bf92c9adf0a06d8acd0ddd3e51e1c9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_abcbd2c3be484ef08b8b0c78e897f13a = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_abb28f2e5d171a75dce7a3bbaaf1b959 = $(`<div id="html_abb28f2e5d171a75dce7a3bbaaf1b959" style="width: 100.0%; height: 100.0%;"><b>바나프레소 고려대이공대점</b><br>개점일: 2025-10-17<br>입지점수: 0.355<br>신규/실패</div>`)[0];
+                popup_abcbd2c3be484ef08b8b0c78e897f13a.setContent(html_abb28f2e5d171a75dce7a3bbaaf1b959);
+            
+        
+
+        marker_960caa733b39b8c74d6fc48f8700445d.bindPopup(popup_abcbd2c3be484ef08b8b0c78e897f13a)
+        ;
+
+        
+    
+    
+                marker_960caa733b39b8c74d6fc48f8700445d.setIcon(icon_e1bf92c9adf0a06d8acd0ddd3e51e1c9);
+            
+    
+            var marker_819584575fdc1c88ea6a11030aec674d = L.marker(
+                [37.4843862961147, 126.929071163537],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_c26740b061b3e6ca861069451f18bf1d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d46b9962d1ae4e641c152759ba8a2692 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_25b07e3b3e631971588c02ddff0bb7b5 = $(`<div id="html_25b07e3b3e631971588c02ddff0bb7b5" style="width: 100.0%; height: 100.0%;"><b>바나프레소 신림역점</b><br>개점일: 2025-10-31<br>입지점수: 0.535<br>신규/실패</div>`)[0];
+                popup_d46b9962d1ae4e641c152759ba8a2692.setContent(html_25b07e3b3e631971588c02ddff0bb7b5);
+            
+        
+
+        marker_819584575fdc1c88ea6a11030aec674d.bindPopup(popup_d46b9962d1ae4e641c152759ba8a2692)
+        ;
+
+        
+    
+    
+                marker_819584575fdc1c88ea6a11030aec674d.setIcon(icon_c26740b061b3e6ca861069451f18bf1d);
+            
+    
+            var marker_f0891f7e962b5d163744ef70a904cbfb = L.marker(
+                [37.5573824118208, 127.077892440485],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_b65102afb6426e5376c3b0d86c3943d0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1e2879e0e85455bec94917a7ddf41932 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_6618da410fb413a54117f98e1a3fb9f6 = $(`<div id="html_6618da410fb413a54117f98e1a3fb9f6" style="width: 100.0%; height: 100.0%;"><b>바나프레소 군자역점</b><br>개점일: 2025-10-16<br>입지점수: 0.433<br>신규/실패</div>`)[0];
+                popup_1e2879e0e85455bec94917a7ddf41932.setContent(html_6618da410fb413a54117f98e1a3fb9f6);
+            
+        
+
+        marker_f0891f7e962b5d163744ef70a904cbfb.bindPopup(popup_1e2879e0e85455bec94917a7ddf41932)
+        ;
+
+        
+    
+    
+                marker_f0891f7e962b5d163744ef70a904cbfb.setIcon(icon_b65102afb6426e5376c3b0d86c3943d0);
+            
+    
+            var marker_9478e3a05f9e8d65a26046827dd4b29b = L.marker(
+                [37.4956299175852, 127.045648565273],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_3717ea84b5a7d43dd3cc46704be9527c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_da92c0406aa09f1649b0d80423add69f = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_fa95ec51aa8d18bde0fcc79eb85e3f5a = $(`<div id="html_fa95ec51aa8d18bde0fcc79eb85e3f5a" style="width: 100.0%; height: 100.0%;"><b>바나프레소 강남세브란스점</b><br>개점일: 2025-11-17<br>입지점수: 0.279<br>신규/실패</div>`)[0];
+                popup_da92c0406aa09f1649b0d80423add69f.setContent(html_fa95ec51aa8d18bde0fcc79eb85e3f5a);
+            
+        
+
+        marker_9478e3a05f9e8d65a26046827dd4b29b.bindPopup(popup_da92c0406aa09f1649b0d80423add69f)
+        ;
+
+        
+    
+    
+                marker_9478e3a05f9e8d65a26046827dd4b29b.setIcon(icon_3717ea84b5a7d43dd3cc46704be9527c);
+            
+    
+            var marker_1149b0be1e7eb78ebdacf7f02c71665a = L.marker(
+                [37.5079233067608, 127.065436042484],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_1a2b6c48a739a85ff872ad2bd28a1ee0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5c99a9ae09ff878332447e633bd4608a = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_ce118787976224d1efd7e9cff6666a5f = $(`<div id="html_ce118787976224d1efd7e9cff6666a5f" style="width: 100.0%; height: 100.0%;"><b>바나프레소 강남면허시험장점</b><br>개점일: 2025-11-20<br>입지점수: 0.304<br>신규/실패</div>`)[0];
+                popup_5c99a9ae09ff878332447e633bd4608a.setContent(html_ce118787976224d1efd7e9cff6666a5f);
+            
+        
+
+        marker_1149b0be1e7eb78ebdacf7f02c71665a.bindPopup(popup_5c99a9ae09ff878332447e633bd4608a)
+        ;
+
+        
+    
+    
+                marker_1149b0be1e7eb78ebdacf7f02c71665a.setIcon(icon_1a2b6c48a739a85ff872ad2bd28a1ee0);
+            
+    
+            var marker_373c542d6aab94533b7555a50d1d494c = L.marker(
+                [37.5660532816543, 126.989956138386],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_b8da61efcfcd02fc56b14a744b6caa66 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_eb17c770b09087820f5bb6dfeb0cde08 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_780d79f83dd448e25a9d088c8952f418 = $(`<div id="html_780d79f83dd448e25a9d088c8952f418" style="width: 100.0%; height: 100.0%;"><b>바나프레소 을지로3가역점</b><br>개점일: 2025-04-30<br>입지점수: 0.446<br>신규/실패</div>`)[0];
+                popup_eb17c770b09087820f5bb6dfeb0cde08.setContent(html_780d79f83dd448e25a9d088c8952f418);
+            
+        
+
+        marker_373c542d6aab94533b7555a50d1d494c.bindPopup(popup_eb17c770b09087820f5bb6dfeb0cde08)
+        ;
+
+        
+    
+    
+                marker_373c542d6aab94533b7555a50d1d494c.setIcon(icon_b8da61efcfcd02fc56b14a744b6caa66);
+            
+    
+            var marker_8675c80adfc644e92d67697fa445ae98 = L.marker(
+                [37.5709617749066, 126.981437983842],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_4eda6292ec02bab3719c29a4e082344a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_327b4f2f63818a392dec7b6c9be82291 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_496568e167e42c7961d939b8aa7c4047 = $(`<div id="html_496568e167e42c7961d939b8aa7c4047" style="width: 100.0%; height: 100.0%;"><b>바나프레소 그랑서울점</b><br>개점일: 2025-12-10<br>입지점수: 0.515<br>신규/실패</div>`)[0];
+                popup_327b4f2f63818a392dec7b6c9be82291.setContent(html_496568e167e42c7961d939b8aa7c4047);
+            
+        
+
+        marker_8675c80adfc644e92d67697fa445ae98.bindPopup(popup_327b4f2f63818a392dec7b6c9be82291)
+        ;
+
+        
+    
+    
+                marker_8675c80adfc644e92d67697fa445ae98.setIcon(icon_4eda6292ec02bab3719c29a4e082344a);
+            
+    
+            var marker_538adcc0aca66bc856f63e04ad06e703 = L.marker(
+                [37.4776586934814, 126.881930383681],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_509f87a95f2c0bca9a02c8128f8f73f9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ae5bcd17b5efe8fac8f7183ec94046e2 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_7cb16acebfef6a33ce37042d94701091 = $(`<div id="html_7cb16acebfef6a33ce37042d94701091" style="width: 100.0%; height: 100.0%;"><b>바나프레소 가산it캐슬점</b><br>개점일: 2025-12-10<br>입지점수: 0.369<br>신규/실패</div>`)[0];
+                popup_ae5bcd17b5efe8fac8f7183ec94046e2.setContent(html_7cb16acebfef6a33ce37042d94701091);
+            
+        
+
+        marker_538adcc0aca66bc856f63e04ad06e703.bindPopup(popup_ae5bcd17b5efe8fac8f7183ec94046e2)
+        ;
+
+        
+    
+    
+                marker_538adcc0aca66bc856f63e04ad06e703.setIcon(icon_509f87a95f2c0bca9a02c8128f8f73f9);
+            
+    
+            var marker_7abaf679285edc3478b031515ee50403 = L.marker(
+                [37.4995662032729, 126.926868762789],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_4e20f10f53d04eda484ebfb7b0d5aab5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e7ffd0a39cc51339f6718652b03c96c1 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_faab8121c375695d416ba08dad567d39 = $(`<div id="html_faab8121c375695d416ba08dad567d39" style="width: 100.0%; height: 100.0%;"><b>바나프레소 신대방삼거리역점</b><br>개점일: 2026-01-05<br>입지점수: 0.336<br>신규/실패</div>`)[0];
+                popup_e7ffd0a39cc51339f6718652b03c96c1.setContent(html_faab8121c375695d416ba08dad567d39);
+            
+        
+
+        marker_7abaf679285edc3478b031515ee50403.bindPopup(popup_e7ffd0a39cc51339f6718652b03c96c1)
+        ;
+
+        
+    
+    
+                marker_7abaf679285edc3478b031515ee50403.setIcon(icon_4e20f10f53d04eda484ebfb7b0d5aab5);
+            
+    
+            var marker_ff782c5b181f5b75fa34ab172997c2fc = L.marker(
+                [37.5269056148241, 126.966566172294],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_8d1c2742367c1221a25086a901c1f06d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_60583733c973a5cbb80918186de17da0 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_b05a5595a554b7763ec76f5875cdb220 = $(`<div id="html_b05a5595a554b7763ec76f5875cdb220" style="width: 100.0%; height: 100.0%;"><b>바나프레소 용산센트럴파크점</b><br>개점일: 2026-01-06<br>입지점수: 0.389<br>신규/실패</div>`)[0];
+                popup_60583733c973a5cbb80918186de17da0.setContent(html_b05a5595a554b7763ec76f5875cdb220);
+            
+        
+
+        marker_ff782c5b181f5b75fa34ab172997c2fc.bindPopup(popup_60583733c973a5cbb80918186de17da0)
+        ;
+
+        
+    
+    
+                marker_ff782c5b181f5b75fa34ab172997c2fc.setIcon(icon_8d1c2742367c1221a25086a901c1f06d);
+            
+    
+            var marker_ee9bcb4bbc52acc25eef74797049d63f = L.marker(
+                [37.4903503986844, 127.031507463771],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_26d6927bbeeb8645ab655a819f656d65 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f9dd1fe52790a14f5ce7af5810742238 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_b12f9535ea156003b6bbd47a8abb14ce = $(`<div id="html_b12f9535ea156003b6bbd47a8abb14ce" style="width: 100.0%; height: 100.0%;"><b>바나프레소 강남역 신분당선점</b><br>개점일: 2026-01-08<br>입지점수: 0.371<br>신규/실패</div>`)[0];
+                popup_f9dd1fe52790a14f5ce7af5810742238.setContent(html_b12f9535ea156003b6bbd47a8abb14ce);
+            
+        
+
+        marker_ee9bcb4bbc52acc25eef74797049d63f.bindPopup(popup_f9dd1fe52790a14f5ce7af5810742238)
+        ;
+
+        
+    
+    
+                marker_ee9bcb4bbc52acc25eef74797049d63f.setIcon(icon_26d6927bbeeb8645ab655a819f656d65);
+            
+    
+            var marker_6257737f32ce3f8ba4182a0d519a351f = L.marker(
+                [37.5193865878083, 126.975025954742],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_9bba6c87b115ecc415a84d44ab3c6a32 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4b8bc09e63a671908a856aa0efaad77e = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_2ac90c189cd4555ac37d8099873ac089 = $(`<div id="html_2ac90c189cd4555ac37d8099873ac089" style="width: 100.0%; height: 100.0%;"><b>바나프레소 동부이촌점</b><br>개점일: 2026-01-12<br>입지점수: 0.215<br>신규/실패</div>`)[0];
+                popup_4b8bc09e63a671908a856aa0efaad77e.setContent(html_2ac90c189cd4555ac37d8099873ac089);
+            
+        
+
+        marker_6257737f32ce3f8ba4182a0d519a351f.bindPopup(popup_4b8bc09e63a671908a856aa0efaad77e)
+        ;
+
+        
+    
+    
+                marker_6257737f32ce3f8ba4182a0d519a351f.setIcon(icon_9bba6c87b115ecc415a84d44ab3c6a32);
+            
+    
+            var marker_d796222eba98075ef2520b363fecacc8 = L.marker(
+                [37.5942413982281, 127.015930395304],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_9cb7ba52bdbfcebfa66db8cafc3de7f0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_71a89c543b38be85cf240935b29af65d = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_0227f679b2fcb29eacbc9ff02da55f92 = $(`<div id="html_0227f679b2fcb29eacbc9ff02da55f92" style="width: 100.0%; height: 100.0%;"><b>바나프레소 동소문점</b><br>개점일: 2023-07-21<br>입지점수: 0.439<br>신규/실패</div>`)[0];
+                popup_71a89c543b38be85cf240935b29af65d.setContent(html_0227f679b2fcb29eacbc9ff02da55f92);
+            
+        
+
+        marker_d796222eba98075ef2520b363fecacc8.bindPopup(popup_71a89c543b38be85cf240935b29af65d)
+        ;
+
+        
+    
+    
+                marker_d796222eba98075ef2520b363fecacc8.setIcon(icon_9cb7ba52bdbfcebfa66db8cafc3de7f0);
+            
+    
+            var marker_64aae0c6f2a2aaf8dfcb1c908ecdea08 = L.marker(
+                [37.5240370177398, 127.026247469744],
+                {
+}
+            ).addTo(feature_group_74ebc1b841c02abf3a84d585a23a761c);
+        
+    
+            var icon_750af9a6fd2ab88855fe88910ebc14d0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgray",
+  "iconColor": "white",
+  "icon": "times",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2b063fa913c307435e962fecb23205a0 = L.popup({
+  "maxWidth": 230,
+});
+
+        
+            
+                var html_a199b44d8e953840987fe0a3cee056a8 = $(`<div id="html_a199b44d8e953840987fe0a3cee056a8" style="width: 100.0%; height: 100.0%;"><b>바나프레소 압구정SLP점</b><br>개점일: 2026-02-24<br>입지점수: 0.346<br>신규/실패</div>`)[0];
+                popup_2b063fa913c307435e962fecb23205a0.setContent(html_a199b44d8e953840987fe0a3cee056a8);
+            
+        
+
+        marker_64aae0c6f2a2aaf8dfcb1c908ecdea08.bindPopup(popup_2b063fa913c307435e962fecb23205a0)
+        ;
+
+        
+    
+    
+                marker_64aae0c6f2a2aaf8dfcb1c908ecdea08.setIcon(icon_750af9a6fd2ab88855fe88910ebc14d0);
+            
+    
+            feature_group_74ebc1b841c02abf3a84d585a23a761c.addTo(map_ec7989c341b37aac825116640fd752a9);
+        
+    
+            var feature_group_c4813cb86b9cb9a218a08f05eaa355a3 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_c5dc20a269ba3d050ab253935c4cdb84 = L.marker(
+                [37.5044520198, 127.0345215252],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_9e199da58ce772dccf63c05dc84256b6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a63e24eb7b7d934ede194638d7cf79bb = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_233fdec4e2fe3c71a8bac377d30c45bf = $(`<div id="html_233fdec4e2fe3c71a8bac377d30c45bf" style="width: 100.0%; height: 100.0%;"><b>1위 추천 매물</b><br>위치 : 서울특별시 강남구 역삼동<br>4층  23.0평<br><hr>보증금: 3,000만원 / 월세: 180만원<br><hr>🚶 점심유동인구: 985,132<br>🚶 저녁유동인구: 882,135<br>🚇 지하철접근성: 333m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4854</b><br>성공확률: <b>0.7428</b></div>`)[0];
+                popup_a63e24eb7b7d934ede194638d7cf79bb.setContent(html_233fdec4e2fe3c71a8bac377d30c45bf);
+            
+        
+
+        marker_c5dc20a269ba3d050ab253935c4cdb84.bindPopup(popup_a63e24eb7b7d934ede194638d7cf79bb)
+        ;
+
+        
+    
+    
+                marker_c5dc20a269ba3d050ab253935c4cdb84.setIcon(icon_9e199da58ce772dccf63c05dc84256b6);
+            
+    
+            var marker_bc2485e2de472c66cb35960f49f0d553 = L.marker(
+                [37.5109350019529, 127.022218565558],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_309f050a287c1d52867ad3ef0872e281 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_94c1b87618d6d04256d30165e072880c = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_2f4fe24b646890e83aa4b6f42ceea450 = $(`<div id="html_2f4fe24b646890e83aa4b6f42ceea450" style="width: 100.0%; height: 100.0%;"><b>2위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>1층  16.0평<br><hr>보증금: 3,000만원 / 월세: 230만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 58m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4511</b><br>성공확률: <b>0.7060</b></div>`)[0];
+                popup_94c1b87618d6d04256d30165e072880c.setContent(html_2f4fe24b646890e83aa4b6f42ceea450);
+            
+        
+
+        marker_bc2485e2de472c66cb35960f49f0d553.bindPopup(popup_94c1b87618d6d04256d30165e072880c)
+        ;
+
+        
+    
+    
+                marker_bc2485e2de472c66cb35960f49f0d553.setIcon(icon_309f050a287c1d52867ad3ef0872e281);
+            
+    
+            var marker_00424f8ac3d32b043014f5b29267448b = L.marker(
+                [37.5105746197, 127.0221144016],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_9f1b2d2fe0577dd6bfb093851d176d32 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_82a6efcb945bbb3f2553d497836a3215 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_528d5d68cad97f9575532700d0cbf0e7 = $(`<div id="html_528d5d68cad97f9575532700d0cbf0e7" style="width: 100.0%; height: 100.0%;"><b>3위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>3층  95.7평<br><hr>보증금: 15,339만원 / 월세: 1,053만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 80m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4396</b><br>성공확률: <b>0.7003</b></div>`)[0];
+                popup_82a6efcb945bbb3f2553d497836a3215.setContent(html_528d5d68cad97f9575532700d0cbf0e7);
+            
+        
+
+        marker_00424f8ac3d32b043014f5b29267448b.bindPopup(popup_82a6efcb945bbb3f2553d497836a3215)
+        ;
+
+        
+    
+    
+                marker_00424f8ac3d32b043014f5b29267448b.setIcon(icon_9f1b2d2fe0577dd6bfb093851d176d32);
+            
+    
+            var marker_95dff28cb2e270a8eccb285817186531 = L.marker(
+                [37.5096809953327, 127.022632607729],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_0c309e801f27371f90ee4ac9b3a345ec = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c27430bf6dcbcb673cf586c7ba370990 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_2c947895ec63382fcf3013ba918a5e20 = $(`<div id="html_2c947895ec63382fcf3013ba918a5e20" style="width: 100.0%; height: 100.0%;"><b>4위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>지하1층  61.0평<br><hr>보증금: 10,000만원 / 월세: 1,000만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 189m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4282</b><br>성공확률: <b>0.6943</b></div>`)[0];
+                popup_c27430bf6dcbcb673cf586c7ba370990.setContent(html_2c947895ec63382fcf3013ba918a5e20);
+            
+        
+
+        marker_95dff28cb2e270a8eccb285817186531.bindPopup(popup_c27430bf6dcbcb673cf586c7ba370990)
+        ;
+
+        
+    
+    
+                marker_95dff28cb2e270a8eccb285817186531.setIcon(icon_0c309e801f27371f90ee4ac9b3a345ec);
+            
+    
+            var marker_84f67894ccb4432bbbb062681972d9f8 = L.marker(
+                [37.5096809953327, 127.022632607729],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_26a117c82fe3cdb0c7b9d24d0477c571 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0cfc645ee5e0f1030403f02067733ce0 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_751080474f7c9ce90aa5311ac1286acf = $(`<div id="html_751080474f7c9ce90aa5311ac1286acf" style="width: 100.0%; height: 100.0%;"><b>5위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>5층  39.0평<br><hr>보증금: 8,000만원 / 월세: 550만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 189m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4282</b><br>성공확률: <b>0.6943</b></div>`)[0];
+                popup_0cfc645ee5e0f1030403f02067733ce0.setContent(html_751080474f7c9ce90aa5311ac1286acf);
+            
+        
+
+        marker_84f67894ccb4432bbbb062681972d9f8.bindPopup(popup_0cfc645ee5e0f1030403f02067733ce0)
+        ;
+
+        
+    
+    
+                marker_84f67894ccb4432bbbb062681972d9f8.setIcon(icon_26a117c82fe3cdb0c7b9d24d0477c571);
+            
+    
+            var marker_68ab80529c31f99b97a3749851aab2fe = L.marker(
+                [37.5096809953327, 127.022632607729],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_ae2f843745a3edd32cd2792559cfa03d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a1dc7f05685fadb78e47fddf37070a0c = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_5ffb7d5330e9e3e23d2662cf7cc5b965 = $(`<div id="html_5ffb7d5330e9e3e23d2662cf7cc5b965" style="width: 100.0%; height: 100.0%;"><b>6위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>4층  40.0평<br><hr>보증금: 10,000만원 / 월세: 600만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 189m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4282</b><br>성공확률: <b>0.6943</b></div>`)[0];
+                popup_a1dc7f05685fadb78e47fddf37070a0c.setContent(html_5ffb7d5330e9e3e23d2662cf7cc5b965);
+            
+        
+
+        marker_68ab80529c31f99b97a3749851aab2fe.bindPopup(popup_a1dc7f05685fadb78e47fddf37070a0c)
+        ;
+
+        
+    
+    
+                marker_68ab80529c31f99b97a3749851aab2fe.setIcon(icon_ae2f843745a3edd32cd2792559cfa03d);
+            
+    
+            var marker_939afc4cd894565f9f21cd1f20818ce9 = L.marker(
+                [37.510091465, 127.0232407833],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_e569a0ae95ee1cabe7e1634ee17dd970 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_34b08bd6fe169e2865beb59460128757 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_e75394650bae7a73d3a613e65766939b = $(`<div id="html_e75394650bae7a73d3a613e65766939b" style="width: 100.0%; height: 100.0%;"><b>7위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>1층  6.0평<br><hr>보증금: 4,000만원 / 월세: 210만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 187m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4136</b><br>성공확률: <b>0.6907</b></div>`)[0];
+                popup_34b08bd6fe169e2865beb59460128757.setContent(html_e75394650bae7a73d3a613e65766939b);
+            
+        
+
+        marker_939afc4cd894565f9f21cd1f20818ce9.bindPopup(popup_34b08bd6fe169e2865beb59460128757)
+        ;
+
+        
+    
+    
+                marker_939afc4cd894565f9f21cd1f20818ce9.setIcon(icon_e569a0ae95ee1cabe7e1634ee17dd970);
+            
+    
+            var marker_0f6daedd4091def44e7f8ce48de7614b = L.marker(
+                [37.5095617494, 127.0228560653],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_25a6d3faa1b2c2b14fc199b64ae2e539 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_83a58b0a8d2ea728ceba56e5051f41ff = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_1f06da18eb5cee4d3ed711d9eb8a6740 = $(`<div id="html_1f06da18eb5cee4d3ed711d9eb8a6740" style="width: 100.0%; height: 100.0%;"><b>8위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>1층  17.8평<br><hr>보증금: 1,100만원 / 월세: 110만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 211m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4259</b><br>성공확률: <b>0.6902</b></div>`)[0];
+                popup_83a58b0a8d2ea728ceba56e5051f41ff.setContent(html_1f06da18eb5cee4d3ed711d9eb8a6740);
+            
+        
+
+        marker_0f6daedd4091def44e7f8ce48de7614b.bindPopup(popup_83a58b0a8d2ea728ceba56e5051f41ff)
+        ;
+
+        
+    
+    
+                marker_0f6daedd4091def44e7f8ce48de7614b.setIcon(icon_25a6d3faa1b2c2b14fc199b64ae2e539);
+            
+    
+            var marker_8e842e17ea78014fc7e68b38dca2670e = L.marker(
+                [37.5119657772, 127.0220786176],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_5d15c7745f20df31a40ed1c58254fd5b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bd0194d736ebb4c50613b90ed45332b4 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_f3970745440858012ece113aea1a8ff2 = $(`<div id="html_f3970745440858012ece113aea1a8ff2" style="width: 100.0%; height: 100.0%;"><b>9위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>지하1층  48.0평<br><hr>보증금: 3,000만원 / 월세: 250만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 93m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4421</b><br>성공확률: <b>0.6838</b></div>`)[0];
+                popup_bd0194d736ebb4c50613b90ed45332b4.setContent(html_f3970745440858012ece113aea1a8ff2);
+            
+        
+
+        marker_8e842e17ea78014fc7e68b38dca2670e.bindPopup(popup_bd0194d736ebb4c50613b90ed45332b4)
+        ;
+
+        
+    
+    
+                marker_8e842e17ea78014fc7e68b38dca2670e.setIcon(icon_5d15c7745f20df31a40ed1c58254fd5b);
+            
+    
+            var marker_fb3696b0a70df25e8f79d1503bc56caf = L.marker(
+                [37.5112740724, 127.0206035034],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_57f49ee0023d82d5607d1d63962f716d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ea9bc9155a9bb5fe089cecdfda1c86dc = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_9b1cd9d867322df0e4375a120fc3c9dd = $(`<div id="html_9b1cd9d867322df0e4375a120fc3c9dd" style="width: 100.0%; height: 100.0%;"><b>10위 추천 매물</b><br>위치 : 서울특별시 서초구 잠원동<br>3층  15.6평<br><hr>보증금: 1,201만원 / 월세: 120만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 94m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4203</b><br>성공확률: <b>0.6771</b></div>`)[0];
+                popup_ea9bc9155a9bb5fe089cecdfda1c86dc.setContent(html_9b1cd9d867322df0e4375a120fc3c9dd);
+            
+        
+
+        marker_fb3696b0a70df25e8f79d1503bc56caf.bindPopup(popup_ea9bc9155a9bb5fe089cecdfda1c86dc)
+        ;
+
+        
+    
+    
+                marker_fb3696b0a70df25e8f79d1503bc56caf.setIcon(icon_57f49ee0023d82d5607d1d63962f716d);
+            
+    
+            var marker_335992dd842c78af524816129e76080c = L.marker(
+                [37.5112740724, 127.0206035034],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_2cb4c5d066baae3789a26ef6050185e2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4c45115d78ebe79ab84d50385c1f77b1 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_4913c91200343843f3937429e79ab81a = $(`<div id="html_4913c91200343843f3937429e79ab81a" style="width: 100.0%; height: 100.0%;"><b>11위 추천 매물</b><br>위치 : 서울특별시 서초구 잠원동<br>지하1층  22.1평<br><hr>보증금: 1,000만원 / 월세: 100만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 94m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4203</b><br>성공확률: <b>0.6771</b></div>`)[0];
+                popup_4c45115d78ebe79ab84d50385c1f77b1.setContent(html_4913c91200343843f3937429e79ab81a);
+            
+        
+
+        marker_335992dd842c78af524816129e76080c.bindPopup(popup_4c45115d78ebe79ab84d50385c1f77b1)
+        ;
+
+        
+    
+    
+                marker_335992dd842c78af524816129e76080c.setIcon(icon_2cb4c5d066baae3789a26ef6050185e2);
+            
+    
+            var marker_2a6e17be66445045b646c1beb95ca135 = L.marker(
+                [37.5127815816384, 127.019305766957],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_2b5f4bb913ca15e54fad3eb5bb0671f1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bff9c6e686ca50dbdc2f873d7f82c3bc = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_f816b436b427417b65aed3c84244516a = $(`<div id="html_f816b436b427417b65aed3c84244516a" style="width: 100.0%; height: 100.0%;"><b>12위 추천 매물</b><br>위치 : 서울특별시 서초구 잠원동<br>1층  180.5평<br><hr>보증금: 30,000만원 / 월세: 2,700만원<br><hr>🚶 점심유동인구: 568,765<br>🚶 저녁유동인구: 648,546<br>🚇 지하철접근성: 273m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4310</b><br>성공확률: <b>0.6765</b></div>`)[0];
+                popup_bff9c6e686ca50dbdc2f873d7f82c3bc.setContent(html_f816b436b427417b65aed3c84244516a);
+            
+        
+
+        marker_2a6e17be66445045b646c1beb95ca135.bindPopup(popup_bff9c6e686ca50dbdc2f873d7f82c3bc)
+        ;
+
+        
+    
+    
+                marker_2a6e17be66445045b646c1beb95ca135.setIcon(icon_2b5f4bb913ca15e54fad3eb5bb0671f1);
+            
+    
+            var marker_404ab2fdb0f655634435d0471437745a = L.marker(
+                [37.5130042353, 127.0192104732],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_a52abf3ae89b7df6858f476f4eabf207 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b199494d64528027b78946200e877291 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_3d33b671c6d569b2f6ac1127b75e518a = $(`<div id="html_3d33b671c6d569b2f6ac1127b75e518a" style="width: 100.0%; height: 100.0%;"><b>13위 추천 매물</b><br>위치 : 서울특별시 서초구 잠원동<br>4층  14.0평<br><hr>보증금: 2,000만원 / 월세: 130만원<br><hr>🚶 점심유동인구: 568,765<br>🚶 저녁유동인구: 648,546<br>🚇 지하철접근성: 296m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4275</b><br>성공확률: <b>0.6743</b></div>`)[0];
+                popup_b199494d64528027b78946200e877291.setContent(html_3d33b671c6d569b2f6ac1127b75e518a);
+            
+        
+
+        marker_404ab2fdb0f655634435d0471437745a.bindPopup(popup_b199494d64528027b78946200e877291)
+        ;
+
+        
+    
+    
+                marker_404ab2fdb0f655634435d0471437745a.setIcon(icon_a52abf3ae89b7df6858f476f4eabf207);
+            
+    
+            var marker_8241e6a24357fdb3cb72fa7f16b7732b = L.marker(
+                [37.5092950929867, 127.022643349164],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_12c8796abda45250c96440decdfb7458 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_17ae4448c5058abcfc0741d537a927bd = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_6b3eb7bcbabffc3af9b5c94ce9c23ed5 = $(`<div id="html_6b3eb7bcbabffc3af9b5c94ce9c23ed5" style="width: 100.0%; height: 100.0%;"><b>14위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>지하1층  70.0평<br><hr>보증금: 8,000만원 / 월세: 300만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 229m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4079</b><br>성공확률: <b>0.6730</b></div>`)[0];
+                popup_17ae4448c5058abcfc0741d537a927bd.setContent(html_6b3eb7bcbabffc3af9b5c94ce9c23ed5);
+            
+        
+
+        marker_8241e6a24357fdb3cb72fa7f16b7732b.bindPopup(popup_17ae4448c5058abcfc0741d537a927bd)
+        ;
+
+        
+    
+    
+                marker_8241e6a24357fdb3cb72fa7f16b7732b.setIcon(icon_12c8796abda45250c96440decdfb7458);
+            
+    
+            var marker_9ed976f1db598b2ff6a0be241e99aa03 = L.marker(
+                [37.5092950929867, 127.022643349164],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_604cf2c4f1f7a29eeda736d188aa3d33 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1c356be9940a550e10504db1e2074c32 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_6e648668ebc61fe3a23bd2da4bedcb3c = $(`<div id="html_6e648668ebc61fe3a23bd2da4bedcb3c" style="width: 100.0%; height: 100.0%;"><b>15위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>지하1층  70.0평<br><hr>보증금: 8,000만원 / 월세: 300만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 229m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4079</b><br>성공확률: <b>0.6730</b></div>`)[0];
+                popup_1c356be9940a550e10504db1e2074c32.setContent(html_6e648668ebc61fe3a23bd2da4bedcb3c);
+            
+        
+
+        marker_9ed976f1db598b2ff6a0be241e99aa03.bindPopup(popup_1c356be9940a550e10504db1e2074c32)
+        ;
+
+        
+    
+    
+                marker_9ed976f1db598b2ff6a0be241e99aa03.setIcon(icon_604cf2c4f1f7a29eeda736d188aa3d33);
+            
+    
+            var marker_8aa2dfae4d990f4db6c549932e122cde = L.marker(
+                [37.5123983718, 127.0214679601],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_c32c2db1876436859f04487d728a0aec = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5cd3abd9a8477cafc6a0c1714802d1dc = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_61d797af3b2e99177a3ec1a19774a97e = $(`<div id="html_61d797af3b2e99177a3ec1a19774a97e" style="width: 100.0%; height: 100.0%;"><b>16위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>4층  15.0평<br><hr>보증금: 1,000만원 / 월세: 140만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 134m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4326</b><br>성공확률: <b>0.6729</b></div>`)[0];
+                popup_5cd3abd9a8477cafc6a0c1714802d1dc.setContent(html_61d797af3b2e99177a3ec1a19774a97e);
+            
+        
+
+        marker_8aa2dfae4d990f4db6c549932e122cde.bindPopup(popup_5cd3abd9a8477cafc6a0c1714802d1dc)
+        ;
+
+        
+    
+    
+                marker_8aa2dfae4d990f4db6c549932e122cde.setIcon(icon_c32c2db1876436859f04487d728a0aec);
+            
+    
+            var marker_77ca3da8bc1b13e084f1ffd5d0dfebfb = L.marker(
+                [37.512174962, 127.0212507288],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_7175e6b0a9f1f28ab7e958988976c151 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2fda1fb0ceb9449eb562720f2b0adde8 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_6714d55473ca4c182a91a4a3eeb14717 = $(`<div id="html_6714d55473ca4c182a91a4a3eeb14717" style="width: 100.0%; height: 100.0%;"><b>17위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>2층  34.0평<br><hr>보증금: 6,500만원 / 월세: 350만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 114m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4318</b><br>성공확률: <b>0.6694</b></div>`)[0];
+                popup_2fda1fb0ceb9449eb562720f2b0adde8.setContent(html_6714d55473ca4c182a91a4a3eeb14717);
+            
+        
+
+        marker_77ca3da8bc1b13e084f1ffd5d0dfebfb.bindPopup(popup_2fda1fb0ceb9449eb562720f2b0adde8)
+        ;
+
+        
+    
+    
+                marker_77ca3da8bc1b13e084f1ffd5d0dfebfb.setIcon(icon_7175e6b0a9f1f28ab7e958988976c151);
+            
+    
+            var marker_334791089f5489b7c9efd44a0211cfb4 = L.marker(
+                [37.5093130773764, 127.022828844612],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_09fd6f8df1095dc2d9cb025c5566ceca = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dc45383d740819fb88fe9e46825067b1 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_d4aee79f53b25efd92b55efaf014e969 = $(`<div id="html_d4aee79f53b25efd92b55efaf014e969" style="width: 100.0%; height: 100.0%;"><b>18위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>2층  51.9평<br><hr>보증금: 5,000만원 / 월세: 716만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 234m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4033</b><br>성공확률: <b>0.6689</b></div>`)[0];
+                popup_dc45383d740819fb88fe9e46825067b1.setContent(html_d4aee79f53b25efd92b55efaf014e969);
+            
+        
+
+        marker_334791089f5489b7c9efd44a0211cfb4.bindPopup(popup_dc45383d740819fb88fe9e46825067b1)
+        ;
+
+        
+    
+    
+                marker_334791089f5489b7c9efd44a0211cfb4.setIcon(icon_09fd6f8df1095dc2d9cb025c5566ceca);
+            
+    
+            var marker_cece54c65547c715932ac4cdb361dc9b = L.marker(
+                [37.5091545258, 127.0226975963],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_0df1de2b31c62c781c5ade9b88ba8b40 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c14dd25236babf572458339c10dd5c8d = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_8d0efb7393436c7c05c06292cb9132ba = $(`<div id="html_8d0efb7393436c7c05c06292cb9132ba" style="width: 100.0%; height: 100.0%;"><b>19위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>11층  28.0평<br><hr>보증금: 6,000만원 / 월세: 500만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 245m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4034</b><br>성공확률: <b>0.6681</b></div>`)[0];
+                popup_c14dd25236babf572458339c10dd5c8d.setContent(html_8d0efb7393436c7c05c06292cb9132ba);
+            
+        
+
+        marker_cece54c65547c715932ac4cdb361dc9b.bindPopup(popup_c14dd25236babf572458339c10dd5c8d)
+        ;
+
+        
+    
+    
+                marker_cece54c65547c715932ac4cdb361dc9b.setIcon(icon_0df1de2b31c62c781c5ade9b88ba8b40);
+            
+    
+            var marker_23c9812f3d3024164112abecbc002572 = L.marker(
+                [37.5091545258, 127.0226975963],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_679a6a35cef062aef2a927527cbc36f5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_32fe3e0e976be70b07dc834e46718e64 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_9fe5713472ad28ccccf832d949c6ceb1 = $(`<div id="html_9fe5713472ad28ccccf832d949c6ceb1" style="width: 100.0%; height: 100.0%;"><b>20위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>12층  28.0평<br><hr>보증금: 6,000만원 / 월세: 500만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 245m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4034</b><br>성공확률: <b>0.6681</b></div>`)[0];
+                popup_32fe3e0e976be70b07dc834e46718e64.setContent(html_9fe5713472ad28ccccf832d949c6ceb1);
+            
+        
+
+        marker_23c9812f3d3024164112abecbc002572.bindPopup(popup_32fe3e0e976be70b07dc834e46718e64)
+        ;
+
+        
+    
+    
+                marker_23c9812f3d3024164112abecbc002572.setIcon(icon_679a6a35cef062aef2a927527cbc36f5);
+            
+    
+            var marker_5879dd8afe309ff3ab7be44904c94cd6 = L.marker(
+                [37.5091545258, 127.0226975963],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_e96e0fef16217d2828c885fd3841f734 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1afee4e5448563d159098b30b7f2307e = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_c3bada35e4f1b0b96418171a5d3b789b = $(`<div id="html_c3bada35e4f1b0b96418171a5d3b789b" style="width: 100.0%; height: 100.0%;"><b>21위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>12층  30.0평<br><hr>보증금: 5,000만원 / 월세: 500만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 245m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4034</b><br>성공확률: <b>0.6681</b></div>`)[0];
+                popup_1afee4e5448563d159098b30b7f2307e.setContent(html_c3bada35e4f1b0b96418171a5d3b789b);
+            
+        
+
+        marker_5879dd8afe309ff3ab7be44904c94cd6.bindPopup(popup_1afee4e5448563d159098b30b7f2307e)
+        ;
+
+        
+    
+    
+                marker_5879dd8afe309ff3ab7be44904c94cd6.setIcon(icon_e96e0fef16217d2828c885fd3841f734);
+            
+    
+            var marker_20fa437678131f3ae6d4ef809f9f270e = L.marker(
+                [37.5112337413954, 127.024222902456],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_65608632e81616df7030ff8be346f10f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a43861d9e7cd3dc6b9c4352dd4c7a5c1 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_44e2147dd24226ef37efa50fd4b6b7e4 = $(`<div id="html_44e2147dd24226ef37efa50fd4b6b7e4" style="width: 100.0%; height: 100.0%;"><b>22위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>5층  35.0평<br><hr>보증금: 5,000만원 / 월세: 500만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 228m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4066</b><br>성공확률: <b>0.6674</b></div>`)[0];
+                popup_a43861d9e7cd3dc6b9c4352dd4c7a5c1.setContent(html_44e2147dd24226ef37efa50fd4b6b7e4);
+            
+        
+
+        marker_20fa437678131f3ae6d4ef809f9f270e.bindPopup(popup_a43861d9e7cd3dc6b9c4352dd4c7a5c1)
+        ;
+
+        
+    
+    
+                marker_20fa437678131f3ae6d4ef809f9f270e.setIcon(icon_65608632e81616df7030ff8be346f10f);
+            
+    
+            var marker_32969bd6c8397d87f8c7025706cb6874 = L.marker(
+                [37.5112337413954, 127.024222902456],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_24a41d71d14d92811ea3c32207429072 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ff3bc834f0622768e5a0a00f0920ad49 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_c823d336592ff2dc3fff9c7944045ce4 = $(`<div id="html_c823d336592ff2dc3fff9c7944045ce4" style="width: 100.0%; height: 100.0%;"><b>23위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>5층  22.0평<br><hr>보증금: 2,000만원 / 월세: 220만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 228m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4066</b><br>성공확률: <b>0.6674</b></div>`)[0];
+                popup_ff3bc834f0622768e5a0a00f0920ad49.setContent(html_c823d336592ff2dc3fff9c7944045ce4);
+            
+        
+
+        marker_32969bd6c8397d87f8c7025706cb6874.bindPopup(popup_ff3bc834f0622768e5a0a00f0920ad49)
+        ;
+
+        
+    
+    
+                marker_32969bd6c8397d87f8c7025706cb6874.setIcon(icon_24a41d71d14d92811ea3c32207429072);
+            
+    
+            var marker_d02fa8ba26fb87b6fb4f8dd626f817df = L.marker(
+                [37.5125460768, 127.021793755],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_87a8c1423a859190474a05b85d7c4e77 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a0aa7945b1e70d24a2698b949cd5ccbe = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_10f301c41ac6c2ead9f72a1207652030 = $(`<div id="html_10f301c41ac6c2ead9f72a1207652030" style="width: 100.0%; height: 100.0%;"><b>24위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>지하1층  65.0평<br><hr>보증금: 6,000만원 / 월세: 360만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 150m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4296</b><br>성공확률: <b>0.6668</b></div>`)[0];
+                popup_a0aa7945b1e70d24a2698b949cd5ccbe.setContent(html_10f301c41ac6c2ead9f72a1207652030);
+            
+        
+
+        marker_d02fa8ba26fb87b6fb4f8dd626f817df.bindPopup(popup_a0aa7945b1e70d24a2698b949cd5ccbe)
+        ;
+
+        
+    
+    
+                marker_d02fa8ba26fb87b6fb4f8dd626f817df.setIcon(icon_87a8c1423a859190474a05b85d7c4e77);
+            
+    
+            var marker_5fcab002fbdd0ced261539c8a37230a7 = L.marker(
+                [37.5123078694, 127.0235762708],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_5c27902d8bfb4a0fefaf1b58c15aee3e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c3572f451c8f9386a9d8b2c5c0b71fec = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_f16af8c6c19e8c68859448d241be7eb1 = $(`<div id="html_f16af8c6c19e8c68859448d241be7eb1" style="width: 100.0%; height: 100.0%;"><b>25위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>5층  47.0평<br><hr>보증금: 7,500만원 / 월세: 557만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 210m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4150</b><br>성공확률: <b>0.6664</b></div>`)[0];
+                popup_c3572f451c8f9386a9d8b2c5c0b71fec.setContent(html_f16af8c6c19e8c68859448d241be7eb1);
+            
+        
+
+        marker_5fcab002fbdd0ced261539c8a37230a7.bindPopup(popup_c3572f451c8f9386a9d8b2c5c0b71fec)
+        ;
+
+        
+    
+    
+                marker_5fcab002fbdd0ced261539c8a37230a7.setIcon(icon_5c27902d8bfb4a0fefaf1b58c15aee3e);
+            
+    
+            var marker_d01ae373056b426ccf838176820d6c48 = L.marker(
+                [37.5123078694, 127.0235762708],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_e93e5cbc5458758299628d53a7325dd7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d632da2aeafc8e1a44784c619a81fb5d = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_7a0e4501195f6c7cee156ae51c6e6075 = $(`<div id="html_7a0e4501195f6c7cee156ae51c6e6075" style="width: 100.0%; height: 100.0%;"><b>26위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>5층  90.0평<br><hr>보증금: 15,000만원 / 월세: 1,150만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 210m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4150</b><br>성공확률: <b>0.6664</b></div>`)[0];
+                popup_d632da2aeafc8e1a44784c619a81fb5d.setContent(html_7a0e4501195f6c7cee156ae51c6e6075);
+            
+        
+
+        marker_d01ae373056b426ccf838176820d6c48.bindPopup(popup_d632da2aeafc8e1a44784c619a81fb5d)
+        ;
+
+        
+    
+    
+                marker_d01ae373056b426ccf838176820d6c48.setIcon(icon_e93e5cbc5458758299628d53a7325dd7);
+            
+    
+            var marker_17dd83e4ef9dba5ef602df249522cbbc = L.marker(
+                [37.5123078694, 127.0235762708],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_d920d177c5dadb81a676ee7539a6ef5d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_614a244492eed403b3cf053ff4106564 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_fec22ad26a6103ca7c140c734b77381d = $(`<div id="html_fec22ad26a6103ca7c140c734b77381d" style="width: 100.0%; height: 100.0%;"><b>27위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>5층  45.0평<br><hr>보증금: 7,500만원 / 월세: 650만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 210m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4150</b><br>성공확률: <b>0.6664</b></div>`)[0];
+                popup_614a244492eed403b3cf053ff4106564.setContent(html_fec22ad26a6103ca7c140c734b77381d);
+            
+        
+
+        marker_17dd83e4ef9dba5ef602df249522cbbc.bindPopup(popup_614a244492eed403b3cf053ff4106564)
+        ;
+
+        
+    
+    
+                marker_17dd83e4ef9dba5ef602df249522cbbc.setIcon(icon_d920d177c5dadb81a676ee7539a6ef5d);
+            
+    
+            var marker_b79a1c60f2b00faebb6d3e8d7073c875 = L.marker(
+                [37.5123078694, 127.0235762708],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_2a504d06f79ae81f127f640f7e60561f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1c145005a83c722dd7e874a786d60be3 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_a7bfa033f184b54f2fcf365d28f73de7 = $(`<div id="html_a7bfa033f184b54f2fcf365d28f73de7" style="width: 100.0%; height: 100.0%;"><b>28위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>5층  90.0평<br><hr>보증금: 15,000만원 / 월세: 1,300만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 210m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4150</b><br>성공확률: <b>0.6664</b></div>`)[0];
+                popup_1c145005a83c722dd7e874a786d60be3.setContent(html_a7bfa033f184b54f2fcf365d28f73de7);
+            
+        
+
+        marker_b79a1c60f2b00faebb6d3e8d7073c875.bindPopup(popup_1c145005a83c722dd7e874a786d60be3)
+        ;
+
+        
+    
+    
+                marker_b79a1c60f2b00faebb6d3e8d7073c875.setIcon(icon_2a504d06f79ae81f127f640f7e60561f);
+            
+    
+            var marker_5e75d5cb1c0f44df3d2a717d826c407c = L.marker(
+                [37.511512079, 127.0197756257],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_4bce923e624c5b776f3da043cb0895e9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7c92878edfd1afc321e562ea8340ea8c = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_023d48251993236e7049006087d98151 = $(`<div id="html_023d48251993236e7049006087d98151" style="width: 100.0%; height: 100.0%;"><b>29위 추천 매물</b><br>위치 : 서울특별시 서초구 잠원동<br>1층  17.0평<br><hr>보증금: 2,000만원 / 월세: 170만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 171m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4146</b><br>성공확률: <b>0.6660</b></div>`)[0];
+                popup_7c92878edfd1afc321e562ea8340ea8c.setContent(html_023d48251993236e7049006087d98151);
+            
+        
+
+        marker_5e75d5cb1c0f44df3d2a717d826c407c.bindPopup(popup_7c92878edfd1afc321e562ea8340ea8c)
+        ;
+
+        
+    
+    
+                marker_5e75d5cb1c0f44df3d2a717d826c407c.setIcon(icon_4bce923e624c5b776f3da043cb0895e9);
+            
+    
+            var marker_38681f4a7c3b32f5d676aa61219c7852 = L.marker(
+                [37.511512079, 127.0197756257],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_f864a67611baab7afe375210da1975d0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_02afedbd69ea3e3356c0f2d8aae72fc4 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_563678b5d1b0b7125d922b8c56175c63 = $(`<div id="html_563678b5d1b0b7125d922b8c56175c63" style="width: 100.0%; height: 100.0%;"><b>30위 추천 매물</b><br>위치 : 서울특별시 서초구 잠원동<br>1층  17.1평<br><hr>보증금: 2,000만원 / 월세: 170만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 171m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4146</b><br>성공확률: <b>0.6660</b></div>`)[0];
+                popup_02afedbd69ea3e3356c0f2d8aae72fc4.setContent(html_563678b5d1b0b7125d922b8c56175c63);
+            
+        
+
+        marker_38681f4a7c3b32f5d676aa61219c7852.bindPopup(popup_02afedbd69ea3e3356c0f2d8aae72fc4)
+        ;
+
+        
+    
+    
+                marker_38681f4a7c3b32f5d676aa61219c7852.setIcon(icon_f864a67611baab7afe375210da1975d0);
+            
+    
+            var marker_37059f258b0d4e16942dbb308eae785d = L.marker(
+                [37.5055343305423, 127.030509307767],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_16a47e6a7721b59861ac8f051fdb224f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ca5c35b96cbe318841eb3400da6e1df1 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_6830152506ad7b5a32ff82e21983bab5 = $(`<div id="html_6830152506ad7b5a32ff82e21983bab5" style="width: 100.0%; height: 100.0%;"><b>31위 추천 매물</b><br>위치 : 서울특별시 강남구 역삼동<br>3층  28.0평<br><hr>보증금: 2,500만원 / 월세: 280만원<br><hr>🚶 점심유동인구: 589,152<br>🚶 저녁유동인구: 788,268<br>🚇 지하철접근성: 397m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4100</b><br>성공확률: <b>0.6650</b></div>`)[0];
+                popup_ca5c35b96cbe318841eb3400da6e1df1.setContent(html_6830152506ad7b5a32ff82e21983bab5);
+            
+        
+
+        marker_37059f258b0d4e16942dbb308eae785d.bindPopup(popup_ca5c35b96cbe318841eb3400da6e1df1)
+        ;
+
+        
+    
+    
+                marker_37059f258b0d4e16942dbb308eae785d.setIcon(icon_16a47e6a7721b59861ac8f051fdb224f);
+            
+    
+            var marker_b02cc43a600997403b17fd8454f2a2d6 = L.marker(
+                [37.5055343305423, 127.030509307767],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_1c87248d7414f52ee7d3105773a0e9db = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c4c93e4a05d2020df3cdd987c8ec192b = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_8dba795f0de10db6a4bdd53f89666926 = $(`<div id="html_8dba795f0de10db6a4bdd53f89666926" style="width: 100.0%; height: 100.0%;"><b>32위 추천 매물</b><br>위치 : 서울특별시 강남구 역삼동<br>2층  39.6평<br><hr>보증금: 3,000만원 / 월세: 290만원<br><hr>🚶 점심유동인구: 589,152<br>🚶 저녁유동인구: 788,268<br>🚇 지하철접근성: 397m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4100</b><br>성공확률: <b>0.6650</b></div>`)[0];
+                popup_c4c93e4a05d2020df3cdd987c8ec192b.setContent(html_8dba795f0de10db6a4bdd53f89666926);
+            
+        
+
+        marker_b02cc43a600997403b17fd8454f2a2d6.bindPopup(popup_c4c93e4a05d2020df3cdd987c8ec192b)
+        ;
+
+        
+    
+    
+                marker_b02cc43a600997403b17fd8454f2a2d6.setIcon(icon_1c87248d7414f52ee7d3105773a0e9db);
+            
+    
+            var marker_183a7d72e1acf3dbc02e87c755b69a74 = L.marker(
+                [37.5110067013, 127.0241594896],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_21921a63814e2a5ca22b90a3cb3f76ab = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0a0f0612193f7fa56e026abc7e8b3df3 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_4fcbefc3a14995f671d8eefbd67288e1 = $(`<div id="html_4fcbefc3a14995f671d8eefbd67288e1" style="width: 100.0%; height: 100.0%;"><b>33위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>1층  60.0평<br><hr>보증금: 10,000만원 / 월세: 800만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 223m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4037</b><br>성공확률: <b>0.6627</b></div>`)[0];
+                popup_0a0f0612193f7fa56e026abc7e8b3df3.setContent(html_4fcbefc3a14995f671d8eefbd67288e1);
+            
+        
+
+        marker_183a7d72e1acf3dbc02e87c755b69a74.bindPopup(popup_0a0f0612193f7fa56e026abc7e8b3df3)
+        ;
+
+        
+    
+    
+                marker_183a7d72e1acf3dbc02e87c755b69a74.setIcon(icon_21921a63814e2a5ca22b90a3cb3f76ab);
+            
+    
+            var marker_5507517e5a31a62f17166d328db9c1c4 = L.marker(
+                [37.5110067013, 127.0241594896],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_8d33acb07e924569f7eb876b76322c3b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ce5646b7ade9f850be0a3ef9242dc2d8 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_29c715b852b05dd1847a27fe5745e213 = $(`<div id="html_29c715b852b05dd1847a27fe5745e213" style="width: 100.0%; height: 100.0%;"><b>34위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>3층  17.0평<br><hr>보증금: 3,000만원 / 월세: 220만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 223m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4037</b><br>성공확률: <b>0.6627</b></div>`)[0];
+                popup_ce5646b7ade9f850be0a3ef9242dc2d8.setContent(html_29c715b852b05dd1847a27fe5745e213);
+            
+        
+
+        marker_5507517e5a31a62f17166d328db9c1c4.bindPopup(popup_ce5646b7ade9f850be0a3ef9242dc2d8)
+        ;
+
+        
+    
+    
+                marker_5507517e5a31a62f17166d328db9c1c4.setIcon(icon_8d33acb07e924569f7eb876b76322c3b);
+            
+    
+            var marker_33f42db0d5e5630156c54ccfd68b100a = L.marker(
+                [37.5110067013, 127.0241594896],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_6576f6012446237df52b4138a43983d8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_86f7048fd4364960d888fdb7366ad4bc = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_ff74b5a1a8903485b4a309528d378607 = $(`<div id="html_ff74b5a1a8903485b4a309528d378607" style="width: 100.0%; height: 100.0%;"><b>35위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>1층  66.9평<br><hr>보증금: 10,000만원 / 월세: 800만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 223m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4037</b><br>성공확률: <b>0.6627</b></div>`)[0];
+                popup_86f7048fd4364960d888fdb7366ad4bc.setContent(html_ff74b5a1a8903485b4a309528d378607);
+            
+        
+
+        marker_33f42db0d5e5630156c54ccfd68b100a.bindPopup(popup_86f7048fd4364960d888fdb7366ad4bc)
+        ;
+
+        
+    
+    
+                marker_33f42db0d5e5630156c54ccfd68b100a.setIcon(icon_6576f6012446237df52b4138a43983d8);
+            
+    
+            var marker_b98ed99f226cd5bd2e84796f88bd9ed1 = L.marker(
+                [37.5123514582, 127.0218027471],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_a6f5d3c97d3bab49973be7204a8349e8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_92d161a6174bc34173a5f2ce32830275 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_37bb92880674b2c195c9c84ea67eaae2 = $(`<div id="html_37bb92880674b2c195c9c84ea67eaae2" style="width: 100.0%; height: 100.0%;"><b>36위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>1층  39.0평<br><hr>보증금: 10,000만원 / 월세: 700만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 129m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4292</b><br>성공확률: <b>0.6623</b></div>`)[0];
+                popup_92d161a6174bc34173a5f2ce32830275.setContent(html_37bb92880674b2c195c9c84ea67eaae2);
+            
+        
+
+        marker_b98ed99f226cd5bd2e84796f88bd9ed1.bindPopup(popup_92d161a6174bc34173a5f2ce32830275)
+        ;
+
+        
+    
+    
+                marker_b98ed99f226cd5bd2e84796f88bd9ed1.setIcon(icon_a6f5d3c97d3bab49973be7204a8349e8);
+            
+    
+            var marker_0bf49d414409e4aab24e76240d17e8a4 = L.marker(
+                [37.512221979, 127.0203142074],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_66b5fc828adbc1f7f4e44adc1f602e05 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5acc80bacc7ebefea0100ca013fa5436 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_3502afcf9e03e30616fd2cdb6d764b37 = $(`<div id="html_3502afcf9e03e30616fd2cdb6d764b37" style="width: 100.0%; height: 100.0%;"><b>37위 추천 매물</b><br>위치 : 서울특별시 서초구 잠원동<br>1층  60.9평<br><hr>보증금: 10,000만원 / 월세: 700만원<br><hr>🚶 점심유동인구: 388,874<br>🚶 저녁유동인구: 478,718<br>🚇 지하철접근성: 165m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4162</b><br>성공확률: <b>0.6620</b></div>`)[0];
+                popup_5acc80bacc7ebefea0100ca013fa5436.setContent(html_3502afcf9e03e30616fd2cdb6d764b37);
+            
+        
+
+        marker_0bf49d414409e4aab24e76240d17e8a4.bindPopup(popup_5acc80bacc7ebefea0100ca013fa5436)
+        ;
+
+        
+    
+    
+                marker_0bf49d414409e4aab24e76240d17e8a4.setIcon(icon_66b5fc828adbc1f7f4e44adc1f602e05);
+            
+    
+            var marker_153c06404223339926c463a04341e3bb = L.marker(
+                [37.5161266341892, 127.0204625401],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_723bb4f022f6dd615ed9d7ebc61812dc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c30cac839b1cd3c8678e9c670f269315 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_e893bf7267c7e1d5ed45331c5698e66f = $(`<div id="html_e893bf7267c7e1d5ed45331c5698e66f" style="width: 100.0%; height: 100.0%;"><b>38위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>11층  36.0평<br><hr>보증금: 5,000만원 / 월세: 380만원<br><hr>🚶 점심유동인구: 568,765<br>🚶 저녁유동인구: 648,546<br>🚇 지하철접근성: 36m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4389</b><br>성공확률: <b>0.6608</b></div>`)[0];
+                popup_c30cac839b1cd3c8678e9c670f269315.setContent(html_e893bf7267c7e1d5ed45331c5698e66f);
+            
+        
+
+        marker_153c06404223339926c463a04341e3bb.bindPopup(popup_c30cac839b1cd3c8678e9c670f269315)
+        ;
+
+        
+    
+    
+                marker_153c06404223339926c463a04341e3bb.setIcon(icon_723bb4f022f6dd615ed9d7ebc61812dc);
+            
+    
+            var marker_0233e8f07733ae9bfbe825845f2a751a = L.marker(
+                [37.5161266341892, 127.0204625401],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_b1f628330216d21a48e9a1e59cb841af = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_265d86183c5bac016a537c26f7e5e092 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_fe9bca9e5e1af0f91697e0893dd81aaa = $(`<div id="html_fe9bca9e5e1af0f91697e0893dd81aaa" style="width: 100.0%; height: 100.0%;"><b>39위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>5층  38.0평<br><hr>보증금: 10,000만원 / 월세: 750만원<br><hr>🚶 점심유동인구: 568,765<br>🚶 저녁유동인구: 648,546<br>🚇 지하철접근성: 36m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4389</b><br>성공확률: <b>0.6608</b></div>`)[0];
+                popup_265d86183c5bac016a537c26f7e5e092.setContent(html_fe9bca9e5e1af0f91697e0893dd81aaa);
+            
+        
+
+        marker_0233e8f07733ae9bfbe825845f2a751a.bindPopup(popup_265d86183c5bac016a537c26f7e5e092)
+        ;
+
+        
+    
+    
+                marker_0233e8f07733ae9bfbe825845f2a751a.setIcon(icon_b1f628330216d21a48e9a1e59cb841af);
+            
+    
+            var marker_e9e3ba6d3ab24ca15bfac87ca1caaf80 = L.marker(
+                [37.5161266341892, 127.0204625401],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_bc358590ef7db993fc1ab733cbd0f6b7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c140da4a587d96a6e7821eb839b0a03d = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_388614fd61a3175e2dff4fac374570e1 = $(`<div id="html_388614fd61a3175e2dff4fac374570e1" style="width: 100.0%; height: 100.0%;"><b>40위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>2층  32.0평<br><hr>보증금: 15,000만원 / 월세: 700만원<br><hr>🚶 점심유동인구: 568,765<br>🚶 저녁유동인구: 648,546<br>🚇 지하철접근성: 36m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4389</b><br>성공확률: <b>0.6608</b></div>`)[0];
+                popup_c140da4a587d96a6e7821eb839b0a03d.setContent(html_388614fd61a3175e2dff4fac374570e1);
+            
+        
+
+        marker_e9e3ba6d3ab24ca15bfac87ca1caaf80.bindPopup(popup_c140da4a587d96a6e7821eb839b0a03d)
+        ;
+
+        
+    
+    
+                marker_e9e3ba6d3ab24ca15bfac87ca1caaf80.setIcon(icon_bc358590ef7db993fc1ab733cbd0f6b7);
+            
+    
+            var marker_e248ba670325c6f4512eac712da7d8ed = L.marker(
+                [37.5161266341892, 127.0204625401],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_597a077e97f2393f999e076386924353 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_249333b6327018dec528430855b992af = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_302f0c37a1cb2db9fc48a8e402c82c5c = $(`<div id="html_302f0c37a1cb2db9fc48a8e402c82c5c" style="width: 100.0%; height: 100.0%;"><b>41위 추천 매물</b><br>위치 : 서울특별시 강남구 논현동<br>13층  35.7평<br><hr>보증금: 10,000만원 / 월세: 500만원<br><hr>🚶 점심유동인구: 568,765<br>🚶 저녁유동인구: 648,546<br>🚇 지하철접근성: 36m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4389</b><br>성공확률: <b>0.6608</b></div>`)[0];
+                popup_249333b6327018dec528430855b992af.setContent(html_302f0c37a1cb2db9fc48a8e402c82c5c);
+            
+        
+
+        marker_e248ba670325c6f4512eac712da7d8ed.bindPopup(popup_249333b6327018dec528430855b992af)
+        ;
+
+        
+    
+    
+                marker_e248ba670325c6f4512eac712da7d8ed.setIcon(icon_597a077e97f2393f999e076386924353);
+            
+    
+            var marker_fa7ab3744f6733577b042b2753fc3753 = L.marker(
+                [37.5179413755, 127.0213111846],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_27f2d3c6a292ab6627e43a9ca7bfb533 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0bd1184370b0cbe31307977ec01a0859 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_d8f981db40485f0b52f2117812b8f280 = $(`<div id="html_d8f981db40485f0b52f2117812b8f280" style="width: 100.0%; height: 100.0%;"><b>42위 추천 매물</b><br>위치 : 서울특별시 강남구 신사동<br>2층  25.4평<br><hr>보증금: 4,000만원 / 월세: 400만원<br><hr>🚶 점심유동인구: 568,765<br>🚶 저녁유동인구: 648,546<br>🚇 지하철접근성: 189m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4522</b><br>성공확률: <b>0.6585</b></div>`)[0];
+                popup_0bd1184370b0cbe31307977ec01a0859.setContent(html_d8f981db40485f0b52f2117812b8f280);
+            
+        
+
+        marker_fa7ab3744f6733577b042b2753fc3753.bindPopup(popup_0bd1184370b0cbe31307977ec01a0859)
+        ;
+
+        
+    
+    
+                marker_fa7ab3744f6733577b042b2753fc3753.setIcon(icon_27f2d3c6a292ab6627e43a9ca7bfb533);
+            
+    
+            var marker_8f5518f98b523eeeed0f7132d0fbf40b = L.marker(
+                [37.5179413755, 127.0213111846],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_9a15ca37925d8bcab63bdefdf798173a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b1b65baebf0ff1813dc3da2bb7568e60 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_4a04f0456bdf981a942a0f4713842d0d = $(`<div id="html_4a04f0456bdf981a942a0f4713842d0d" style="width: 100.0%; height: 100.0%;"><b>43위 추천 매물</b><br>위치 : 서울특별시 강남구 신사동<br>2층  29.1평<br><hr>보증금: 3,000만원 / 월세: 293만원<br><hr>🚶 점심유동인구: 568,765<br>🚶 저녁유동인구: 648,546<br>🚇 지하철접근성: 189m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4522</b><br>성공확률: <b>0.6585</b></div>`)[0];
+                popup_b1b65baebf0ff1813dc3da2bb7568e60.setContent(html_4a04f0456bdf981a942a0f4713842d0d);
+            
+        
+
+        marker_8f5518f98b523eeeed0f7132d0fbf40b.bindPopup(popup_b1b65baebf0ff1813dc3da2bb7568e60)
+        ;
+
+        
+    
+    
+                marker_8f5518f98b523eeeed0f7132d0fbf40b.setIcon(icon_9a15ca37925d8bcab63bdefdf798173a);
+            
+    
+            var marker_a5b1377987d6b5c72f72ec20534406b7 = L.marker(
+                [37.5179413755, 127.0213111846],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_533df096c3057545bdcc3b1621cd4ddd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_86fa848736463d6d54eae364bb389515 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_836f26e90fafc963ba7cf0bb60021a33 = $(`<div id="html_836f26e90fafc963ba7cf0bb60021a33" style="width: 100.0%; height: 100.0%;"><b>44위 추천 매물</b><br>위치 : 서울특별시 강남구 신사동<br>5층  32.8평<br><hr>보증금: 3,000만원 / 월세: 250만원<br><hr>🚶 점심유동인구: 568,765<br>🚶 저녁유동인구: 648,546<br>🚇 지하철접근성: 189m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4522</b><br>성공확률: <b>0.6585</b></div>`)[0];
+                popup_86fa848736463d6d54eae364bb389515.setContent(html_836f26e90fafc963ba7cf0bb60021a33);
+            
+        
+
+        marker_a5b1377987d6b5c72f72ec20534406b7.bindPopup(popup_86fa848736463d6d54eae364bb389515)
+        ;
+
+        
+    
+    
+                marker_a5b1377987d6b5c72f72ec20534406b7.setIcon(icon_533df096c3057545bdcc3b1621cd4ddd);
+            
+    
+            var marker_2f54ae9f62e2d044b371755e0026353d = L.marker(
+                [37.5178621262, 127.0210939782],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_d32ef60ab50f9c7d7ea19747472b7555 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_de07c8af05d3823dbdf170319355bbe6 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_d74d365354dc42e6428b17903ba45911 = $(`<div id="html_d74d365354dc42e6428b17903ba45911" style="width: 100.0%; height: 100.0%;"><b>45위 추천 매물</b><br>위치 : 서울특별시 강남구 신사동<br>2층  27.2평<br><hr>보증금: 3,000만원 / 월세: 270만원<br><hr>🚶 점심유동인구: 568,765<br>🚶 저녁유동인구: 648,546<br>🚇 지하철접근성: 173m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4482</b><br>성공확률: <b>0.6577</b></div>`)[0];
+                popup_de07c8af05d3823dbdf170319355bbe6.setContent(html_d74d365354dc42e6428b17903ba45911);
+            
+        
+
+        marker_2f54ae9f62e2d044b371755e0026353d.bindPopup(popup_de07c8af05d3823dbdf170319355bbe6)
+        ;
+
+        
+    
+    
+                marker_2f54ae9f62e2d044b371755e0026353d.setIcon(icon_d32ef60ab50f9c7d7ea19747472b7555);
+            
+    
+            var marker_e91adec1f9377eeb7eb0059792979e8e = L.marker(
+                [37.5178621262, 127.0210939782],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_48e83fee26fedc3f4dfff3fc0da8ad58 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_56a6bc84745bb6a7e2d62cb68489da31 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_b8ec4c8d48696e29f6c3e2eacab80cc1 = $(`<div id="html_b8ec4c8d48696e29f6c3e2eacab80cc1" style="width: 100.0%; height: 100.0%;"><b>46위 추천 매물</b><br>위치 : 서울특별시 강남구 신사동<br>3층  25.0평<br><hr>보증금: 3,000만원 / 월세: 220만원<br><hr>🚶 점심유동인구: 568,765<br>🚶 저녁유동인구: 648,546<br>🚇 지하철접근성: 173m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4482</b><br>성공확률: <b>0.6577</b></div>`)[0];
+                popup_56a6bc84745bb6a7e2d62cb68489da31.setContent(html_b8ec4c8d48696e29f6c3e2eacab80cc1);
+            
+        
+
+        marker_e91adec1f9377eeb7eb0059792979e8e.bindPopup(popup_56a6bc84745bb6a7e2d62cb68489da31)
+        ;
+
+        
+    
+    
+                marker_e91adec1f9377eeb7eb0059792979e8e.setIcon(icon_48e83fee26fedc3f4dfff3fc0da8ad58);
+            
+    
+            var marker_ab6b6bc97dcb69017dd1ff55132fca72 = L.marker(
+                [37.5178621262, 127.0210939782],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_cd12d83279e76da67f4eb529c55baf40 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f0caea9c8f819d9bca03dee38c1c6d76 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_044903858d690821db11bffdb6bb410a = $(`<div id="html_044903858d690821db11bffdb6bb410a" style="width: 100.0%; height: 100.0%;"><b>47위 추천 매물</b><br>위치 : 서울특별시 강남구 신사동<br>5층  18.0평<br><hr>보증금: 3,000만원 / 월세: 210만원<br><hr>🚶 점심유동인구: 568,765<br>🚶 저녁유동인구: 648,546<br>🚇 지하철접근성: 173m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4482</b><br>성공확률: <b>0.6577</b></div>`)[0];
+                popup_f0caea9c8f819d9bca03dee38c1c6d76.setContent(html_044903858d690821db11bffdb6bb410a);
+            
+        
+
+        marker_ab6b6bc97dcb69017dd1ff55132fca72.bindPopup(popup_f0caea9c8f819d9bca03dee38c1c6d76)
+        ;
+
+        
+    
+    
+                marker_ab6b6bc97dcb69017dd1ff55132fca72.setIcon(icon_cd12d83279e76da67f4eb529c55baf40);
+            
+    
+            var marker_927e8faeb03e68ec122c6cf1f390622d = L.marker(
+                [37.5178621262, 127.0210939782],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_22686ae4f9db3f96467bb6c396f278f9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ab8b772776a47afa3d308718210a8a83 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_922b21b026efbe647c009ce36441faa7 = $(`<div id="html_922b21b026efbe647c009ce36441faa7" style="width: 100.0%; height: 100.0%;"><b>48위 추천 매물</b><br>위치 : 서울특별시 강남구 신사동<br>3층  25.3평<br><hr>보증금: 3,000만원 / 월세: 220만원<br><hr>🚶 점심유동인구: 568,765<br>🚶 저녁유동인구: 648,546<br>🚇 지하철접근성: 173m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4482</b><br>성공확률: <b>0.6577</b></div>`)[0];
+                popup_ab8b772776a47afa3d308718210a8a83.setContent(html_922b21b026efbe647c009ce36441faa7);
+            
+        
+
+        marker_927e8faeb03e68ec122c6cf1f390622d.bindPopup(popup_ab8b772776a47afa3d308718210a8a83)
+        ;
+
+        
+    
+    
+                marker_927e8faeb03e68ec122c6cf1f390622d.setIcon(icon_22686ae4f9db3f96467bb6c396f278f9);
+            
+    
+            var marker_8abf364517c2ae3476e8f0c3c420cf09 = L.marker(
+                [37.5177719631, 127.0214423515],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_2ef8e17109d7da68f7859f757c3720ec = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_eabf5982a9d7c2a50528a718da0a5df4 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_68fa9350c23e4c920b5698e3630aa7f5 = $(`<div id="html_68fa9350c23e4c920b5698e3630aa7f5" style="width: 100.0%; height: 100.0%;"><b>49위 추천 매물</b><br>위치 : 서울특별시 강남구 신사동<br>1층  30.0평<br><hr>보증금: 22,000만원 / 월세: 1,500만원<br><hr>🚶 점심유동인구: 568,765<br>🚶 저녁유동인구: 648,546<br>🚇 지하철접근성: 179m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4548</b><br>성공확률: <b>0.6539</b></div>`)[0];
+                popup_eabf5982a9d7c2a50528a718da0a5df4.setContent(html_68fa9350c23e4c920b5698e3630aa7f5);
+            
+        
+
+        marker_8abf364517c2ae3476e8f0c3c420cf09.bindPopup(popup_eabf5982a9d7c2a50528a718da0a5df4)
+        ;
+
+        
+    
+    
+                marker_8abf364517c2ae3476e8f0c3c420cf09.setIcon(icon_2ef8e17109d7da68f7859f757c3720ec);
+            
+    
+            var marker_53cbf6a7735ebaf863292516f17b364c = L.marker(
+                [37.5177719631, 127.0214423515],
+                {
+}
+            ).addTo(marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb);
+        
+    
+            var icon_36a3988419f72af556ae3f01f8d00322 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4dee130417408c1a06e0f3f6ad7958a6 = L.popup({
+  "maxWidth": 270,
+});
+
+        
+            
+                var html_fa2dee8e678e4a2879a6324067a4b229 = $(`<div id="html_fa2dee8e678e4a2879a6324067a4b229" style="width: 100.0%; height: 100.0%;"><b>50위 추천 매물</b><br>위치 : 서울특별시 강남구 신사동<br>3층  24.8평<br><hr>보증금: 3,000만원 / 월세: 230만원<br><hr>🚶 점심유동인구: 568,765<br>🚶 저녁유동인구: 648,546<br>🚇 지하철접근성: 179m<br>🛣 대로변접근성: 근접<br><hr>입지점수: <b>0.4548</b><br>성공확률: <b>0.6539</b></div>`)[0];
+                popup_4dee130417408c1a06e0f3f6ad7958a6.setContent(html_fa2dee8e678e4a2879a6324067a4b229);
+            
+        
+
+        marker_53cbf6a7735ebaf863292516f17b364c.bindPopup(popup_4dee130417408c1a06e0f3f6ad7958a6)
+        ;
+
+        
+    
+    
+                marker_53cbf6a7735ebaf863292516f17b364c.setIcon(icon_36a3988419f72af556ae3f01f8d00322);
+            
+    
+            marker_cluster_9e1d0fe7da4afa6f4f8630a0ee5fdfeb.addTo(feature_group_c4813cb86b9cb9a218a08f05eaa355a3);
+        
+    
+            feature_group_c4813cb86b9cb9a218a08f05eaa355a3.addTo(map_ec7989c341b37aac825116640fd752a9);
+        
+    
+            var layer_control_1fb3295406538b96c8883fa3ecc8fd14_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_3b9167647635ecfedc1dc9c500d1629b,
+                },
+                overlays :  {
+                    "\ubc14\ub098\ud504\ub808\uc18c \uc131\uacf5 \ub9e4\uc7a5" : feature_group_3bd36c3f44f6a316582b081159db7bd9,
+                    "\ubc14\ub098\ud504\ub808\uc18c \uc2e0\uaddc/\uc2e4\ud328" : feature_group_74ebc1b841c02abf3a84d585a23a761c,
+                    "\ucd94\ucc9c \ub9e4\ubb3c TOP 50" : feature_group_c4813cb86b9cb9a218a08f05eaa355a3,
+                },
+            };
+            let layer_control_1fb3295406538b96c8883fa3ecc8fd14 = L.control.layers(
+                layer_control_1fb3295406538b96c8883fa3ecc8fd14_layers.base_layers,
+                layer_control_1fb3295406538b96c8883fa3ecc8fd14_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_ec7989c341b37aac825116640fd752a9);
+
+        
+</script>
+</html>
