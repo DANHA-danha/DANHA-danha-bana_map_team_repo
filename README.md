@@ -65,3 +65,11 @@ brewmap/
 3. **소비력 기반 전략** — 고가 카페 多 = 소비력 높은 상권 신호, 자사 경쟁 최소화
 
 
+## Personal Development Log
+<details>
+<summary> Brew Map Development Log </summary>
+
+- [Brew_map-Dev Log](https://www.notion.so/BrewMap-Development-Log-2ea589dece9f8051b657ff8323a35961?source=copy_link)
+
+</details>
+
