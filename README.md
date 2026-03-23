@@ -3,7 +3,7 @@
 ### 공공데이터와 웹 크롤링 데이터 기반 기존 입지 패턴 분석 및 신규 매물 점수화 시스템
 
 <p align="center">
-  <img src="image/bana_intro.png" width="100%" />
+  <img src="img/bana_intro.png" width="100%" />
 </p>
 
 
